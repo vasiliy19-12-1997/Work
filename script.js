@@ -1,1 +1,1 @@
-const 1 = 
+let vasya  = 'Vasya';
