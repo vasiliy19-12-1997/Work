@@ -1,0 +1,28 @@
+.cardToken {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    min-width: 20%;
+    max-width: 10%;
+    margin: 10px;
+    padding: 4% 4%;
+
+    border-radius: 10px;
+    background-image: linear-gradient(60deg, #e85475 10%, #d48444 50%, #efcb0a 100%);
+    box-shadow: 1px 1px 3.5px 0 rgba(26, 29, 29, 0.35);
+}
+
+.cardToken h1 {
+    margin: 0 0 0 15px;
+    font-size: 30px;
+    color: blanchedalmond;
+}
+
+
+@media(max-width:767px) {
+    .cardToken {
+        min-width: 70%;
+    }
+}
+

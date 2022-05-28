@@ -1,0 +1,15 @@
+.fetchToken {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+    height: 20%;
+
+
+}
+
+@media(max-width:767px) {
+    .fetchToken {
+        flex-direction: column;
+    }
+}

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- нужно закрывать теги всегда -->
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint eveniet veniam, saepe numquam 
+        officia dolore sequi consectetur debitis alias placeat est vel? 
+        Voluptas ex, aspernatur dolore 
+        enim reprehenderit nisi velit.</p>
+
+        <!-- использовать имена в нижнем регистре -->
+    <a href=""></a>
+    <p></p>
+    <b></b>
+    <!-- вот так не надо -->
+    <p>dfdfdfdfd
+    <p>dfdfdfdfd
+    
+    <!--Используйте имена атрибутов в нижнем регистре -->
+    <a href="https://catherineasquithgallery.com/uploads/posts/2021-03/1615820230_4-p-fon-nochnoe-nebo-5.jpg"></a>
+    <!-- Плохой: -->
+    <a HREF="https://www.w3schools.com/html/">Visit our HTML tutorial</a>
+    
+
+    <!-- Всегда указывать значения атрибутов -->
+    <table class="scroll"></table>
+    <!-- Плохой: -->
+    <table class=striped></table>
+    <!-- Очень плохой: -->
+    <table class=table striped>
+    
+    
+    <!-- 
+    Всегда указывайте Alt, ширину и высоту для изображений
+    Всегда указывайте altатрибут для изображений. Этот атрибут важен, если изображение по каким-то причинам не может быть отображено.
+        
+    Кроме того, всегда определяйте widthи heightизображений. Это уменьшает мерцание, поскольку браузер может зарезервировать место для изображения перед загрузкой. 
+    Также Опускайте название протокола (http:, https:) в ссылках на картинки или другие медиа-ресурсы, файлы стилей или скрипты, конечно, если эти файлы доступны по обоим протоколам.
+
+    Отсутствие протокола делает ссылку относительной, что предотвращает смешивание ресурсов из разных протоколов и незначительно уменьшает размер файлов. -->
+    <img src="https://upload.wikimedia.org/wikipedia/commons/1/15/Castlepoint_Fur_Seal.jpg" alt="HTML5" style="width:150px;height:200px">
+    
+    <!-- Пробелы и знаки равенства -->
+    <!-- HTML допускает пробелы вокруг знаков равенства. Но без пробела легче читать и лучше группировать объекты вместе.  -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Плохой: -->
+    <link rel= "stylesheet" href= "style.css">
+    <!-- Избегайте длинных строк кода
+    При использовании HTML-редактора НЕ удобно прокручивать вправо и влево для чтения HTML-кода.
+    Старайтесь избегать слишком длинных строк кода. -->
+
+    <!-- Пустые строки и отступы
+    Не добавляйте пустые строки, пробелы или отступы без причины.
+    Для удобства чтения добавьте пустые строки для разделения больших или логических блоков кода.
+    Для удобочитаемости добавьте два пробела отступа. Не используйте клавишу табуляции. -->
+    <body>
+       
+        <h1>Famous Cities</h1>
+       
+       <h2>Tokyo</h2>
+       <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellendus quis, doloremque ratione praesentium molestias asperiores quam ut atque assumenda, impedit nesciunt non culpa facilis optio inventore. Eius fugit quos voluptatibus.</p>
+
+       <h2>London</h2>
+       <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ad magnam labore odit consequuntur consectetur quas ea enim aliquam voluptate quasi adipisci rem deserunt, nesciunt at deleniti exercitationem tempore dicta illo.</p>
+
+       <h2>Paris</h2>
+       <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consequatur vel, optio distinctio laboriosam ex molestiae tenetur neque nam fugiat totam laborum corrupti, mollitia, aliquam aspernatur a corporis fugit! Soluta, dicta.</p>
+
+         
+    </body>
+
+    <!-- Плохой -->
+    <body>
+        <h1>Famous Cities</h1>
+        <h2>Tokyo</h2><p>Tokyo is the capital of Japan, the center of the Greater Tokyo Area, and the most populous metropolitan area in the world.</p>
+        <h2>London</h2><p>London is the capital city of England. It is the most populous city in the United Kingdom.</p>
+        <h2>Paris</h2><p>Paris is the capital of France. The Paris area is one of the largest population centers in Europe.</p>
+    </body>
+
+    <!-- пример хороший таблицы: -->
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>App</td>
+            <td>Description</td>
+        </tr>
+    </table>
+    
+    <!-- пример хорошего списка -->
+    <ul>
+        <li>London</li>
+        <li>Paris</li>
+        <li>Ekaterinburg</li>
+    </ul>
+
+    <!-- Комментарии
+    По возможности поясняйте свой код, где это необходимо.
+    
+    Используйте комментарии, чтобы пояснить свой код: что он делает, за что отвечает, и почему используется выбранное решение.
+    
+    (Этот пункт не обязателен, потому что нет смысла ожидать, что код всегда будет хорошо задокументирован. Полезность комментирования зависит от сложности проекта и может различаться для HTML и CSS кода. ) -->
+
+    <!-- Задачи
+    Отмечайте задачи для списка дел с помощью TODO.
+
+    Отмечайте задачи с помощью ключевого слова TODO. не используйте другие часто встречающиеся форматы, такие как @@.
+
+    Заключайте контакты (имя пользователя или список адресатов) в круглые скобки: TODO(контакт).
+
+    Описывайте задачу после двоеточия, например: TODO: Задача. -->
+     # TODO (Vasiliy Konovalov): Разобраться с code Convection # 
+    <center>Test</center>
+    <!-- Альтернатива для мультимедиа
+    Всегда указывайте альтернативное содержимое для мультимедиа. -->
+
+    <!-- Постарайтесь указать альтернативное содержимое для мультимедиа: например для картинок, видео или анимаций, заданных с помощью canvas. Для картинок это осмысленный альтернативный текст (alt), а для видео и аудио расшифровки текста и подписи если это возможно.
+
+    Альтернативное содержимое может помочь людям с с ограниченными возможностями. Например человеку со слабым зрением сложно понять, что на картинке если для нее не задан @alt. Другим людям может быть тяжело понять о чем говорится в видео или аудио записи.
+
+    (Если для картинки alt избыточен, или она используется только в декоративных целях в местах, где нельзя использовать CSS, используйте пустой альтернативный текст alt="") -->
+    <img src="//www.google.ru/url?sa=i&url=https%3A%2F%2Fwww.championat.com%2Ffootball%2Fnews-4425455-messi-vystupil-s-zayavleniem-posle-uhoda-iz-barselony.html&psig=AOvVaw34GbemECnuUpUCtAVuxmE6&ust=1650414006382000&source=images&cd=vfe&ved=0CAwQjRxqFwoTCMiq1MztnvcCFQAAAAAdAAAAABAI" alt="Месси" srcset="">
+    
+    <!-- Разделение ответственности
+    Разделяйте структуру, оформление и поведение.
+
+    Держите структуру (разметка), оформление (стили) и поведение (скрипты) раздельно и постарайтесь свести взаимодействие между ними к минимуму.
+
+    Убедитесь, что документы и шаблоны содержат только HTML, и что HTML служит только для задания структуры документа. Весь код, отвечающий за оформление, перенесите в файлы стилей, а код отвечающий за поведение — в скрипты.
+
+    Старайтесь сократить их пересечения к минимуму, включая в шаблоны минимальное количество файлов стилей и скриптов.
+
+    Отделение структуры от представления и поведения помогает облегчить поддержку кода. Изменение шаблонов и HTML-документов всегда занимает больше времени чем изменение файлов стилей или скриптов. -->
+    <!-- Не рекомендуется:
+  <!DOCTYPE html>
+  <title>HTML sucks</title>
+  <link rel="stylesheet" href="base.css" media="screen">
+  <link rel="stylesheet" href="grid.css" media="screen">
+  <link rel="stylesheet" href="print.css" media="print">
+  <h1 style="font-size: 1em;">HTML Отстой</h1>
+  <p>Я об этом и раньше где-то читал, но теперь точно все ясно:
+    <u>HTML - полная фигня!!1</u>
+  <center>Не могу поверить, что для того чтобы изменить оформление,
+  нужно каждый раз все переделывать заново. </center> -->
+  <!-- Рекомендуется:
+  <!DOCTYPE html>
+  <title>My first CSS-only redesign</title>
+  <link rel="stylesheet" href="default.css">
+  <h1>Мой новый CSS дизайн</h1>
+  <p>Я читал об этом и раньше, но наконец-то сделал сам:
+    Использую принцип разделения ответственности и не пихаю оформление в HTML
+  <p>Как круто! -->
+
+            
+
+
+</body>
+</html>

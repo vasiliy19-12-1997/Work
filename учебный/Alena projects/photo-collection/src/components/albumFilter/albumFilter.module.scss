@@ -1,0 +1,22 @@
+.albumFilter {
+    grid-area: albumFilter;
+    display: grid;
+    grid-template-columns: 120px 120px 120px;
+    grid-column-gap: 20px;
+    grid-row-gap: 20px;
+    justify-content: center;
+
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow:  2px 2px 3px 1px #c0c0c0; 
+    overflow-y: auto;
+
+    &::-webkit-scrollbar {
+        width: 5px;
+    }
+    &::-webkit-scrollbar-thumb {
+        background-color: rgb(175, 217, 251, 0.3);
+        border-radius: 5px;
+        box-shadow: 1px 1px 2px 1px #c0c0c0;;
+    }
+}
