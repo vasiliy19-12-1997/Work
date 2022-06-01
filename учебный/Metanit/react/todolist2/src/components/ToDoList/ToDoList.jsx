@@ -1,4 +1,8 @@
 import React, {useState} from "react";
+import { Row, Col, FormControl, Button } from 'react-bootstrap';
+import s from './TodoList.module.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSave, faTrash, faEdit, faLock, faLockOpen } from '@fortawesome/free-solid-svg-icons';
 function ToDoList({todo, setTodo}){
 
     const [edit, setEdit] = useState(null);
@@ -44,7 +48,7 @@ function ToDoList({todo, setTodo}){
             {
                 //выводим todo item title на лист с помощью метода map для массива
                 todo.map(item=>(
-                <div key={item.id}>
+                <div key={item.id} className={s.listItems}>
                     {
                         edit == item.id ? 
                         <div>
@@ -52,19 +56,25 @@ function ToDoList({todo, setTodo}){
                             
                         </div>
                         :
-                        <div>item.title</div>
+                        <div className={!item.status ? s.close: ''}>{item.title}</div>
 
                     }
                     {
                         edit == item.id ? 
                         <div>
-                            <button onClick= {()=>saveTodo(item.id)}>Save</button>
+                            <Button onClick= {()=>saveTodo(item.id)}><FontAwesomeIcon icon = {faSave}/></Button>
                         </div>
                         :
                         <div>
-                            <button onClick={()=>deleteTodo(item.id)}>Delete</button>
-                            <button onClick={()=>editTodo(item.id, item.title)}>Edit</button>
-                            <button onClick={()=>statusTodo(item.id)}>Close/Open</button>
+                            <Button size='sm' onClick={()=>deleteTodo(item.id)} className={s.btn}><FontAwesomeIcon  icon = {faTrash}/></Button>
+                            <Button size='sm' onClick={()=>editTodo(item.id, item.title)}className={s.btn}><FontAwesomeIcon  icon = {faEdit}/></Button>
+                            <Button size='sm' onClick={()=>statusTodo(item.id)}className={s.btn}>
+                            
+                            {
+                                item.status  ? <FontAwesomeIcon icon = {faLockOpen}/> : <FontAwesomeIcon icon = {faLock}/>
+                            }
+                            </Button>
+
                         </div>
                     }
                     <div>{item.title}</div>
