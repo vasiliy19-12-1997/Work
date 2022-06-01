@@ -58,7 +58,7 @@ function ToDoList({todo, setTodo}){
                             <Button onClick={()=>editToDo(item.id, item.title)}size='sm' className={s.btn}><FontAwesomeIcon icon={faEdit}/></Button>
                             <Button onClick={()=>statusToDo(item.id)}size='sm' className={s.btn}>
                                 {
-                                    item.status ? <FontAwesomeIcon icon={faLock}/>:<FontAwesomeIcon icon={faLockOpen}/>
+                                    !item.status ? <FontAwesomeIcon icon={faLockOpen} />:<FontAwesomeIcon icon={faLock} />
                                 }
                                 </Button>
                         </div>
