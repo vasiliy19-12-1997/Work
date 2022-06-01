@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import { v3 } from "uuid";
 import {v1 as uuid} from 'uuid';
 import { Row, Col, Button, FormControl} from "react-bootstrap";
-import s from './AddToDo.module.css';
+import s from './AddToDo.module.sass';
 function AddToDo({setTodo, todo}){
 
     const [value, setValue] = useState('');

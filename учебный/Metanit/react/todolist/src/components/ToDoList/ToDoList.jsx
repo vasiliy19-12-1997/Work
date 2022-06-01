@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import { Row, Col, Button, FormControl} from "react-bootstrap";
-import s from './TodoList.module.css';
+import s from './TodoList.module.sass';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEdit, faLock, faLockOpen, faSave, faTrash } from '@fortawesome/free-solid-svg-icons';
 function ToDoList({todo, setTodo}){
