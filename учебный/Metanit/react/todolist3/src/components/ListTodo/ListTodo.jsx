@@ -1,46 +1,66 @@
 import React, {useState} from "react";
+import s from './ListTodo.module.css';
 function ListTodo({todo, setTodo}){
-    const [edit, setEdit] = useState(null);
-    // console.log(todo);
-    function deleteTodo(id){
-        let newTodo = [...todo].filter(item=>item.id!=id);
-        setTodo(newTodo);
-    }
-   function statusTodo(id){
-       const newTodo = [...todo].filter(item=>{
-           if(item.id==id){
-               item.status = !item.status;
-           }
-           return item;
-        });
-        setTodo(newTodo);
-    }
-    function editTodo(id){
-        setEdit(id);
-    }
+  const [value, setValue] = useState('');
+  const [edit, setEdit] = useState(null);
+  function deleteTodo(id){
+    let newTodo = [...todo].filter(item=>item.id!=id);
+    setTodo(newTodo);
+  }
+  function statusTodo(id){
+    let newTodo = [...todo].filter(item=>{
+        if(item.id == id){
+            item.status = !item.status;
+        }
+        return item;
+    })
+    setTodo(newTodo);
+  }
+  function saveTodo(id, title){
+    let newTodo = [...todo].map(item=>{
+        if(item.id == id){
+            item.title = value
+        }
+        return item;
+    })
+    setTodo(newTodo);
+    setEdit(null);
+  }
+  function editTodo(id, title){
+    setEdit(id);
+    setValue(title)
+  }
+    
+    // console.log(value);
     return (
-       
-        <div>
-            {   //выведем с помощью map на страницу наш титл потом добавим ключ id
-                todo.map(item=>(
-                    <div key = {item.id}>
-                        {
-                            edit == item.id ? <div>
-                                <input/>
-                                <button>save</button>
+       <div>
+           {
+               todo.map(item=>(
+                   <div key = {item.id}>
+                       {
+                           edit == item.id ?
+                           <div>
+                               <input value={value} onChange={(e)=>setValue(e.target.value)}/>
+                           </div>
+                           :
+                           <div>{item.title}</div>
+                       }
+                       {
+                           edit == item.id ?
+                            <div>
+                                <button onClick = {()=>saveTodo(item.id, item.title)}>Save</button>
                             </div>
                             :
-                            <div>{item.title}</div>
-
-                        }
-                    
-                    <button onClick={()=>deleteTodo(item.id)}>Delete</button>
-                    <button onClick={()=>editTodo(item.id)}>Edit</button>
-                    <button onClick={()=>statusTodo(item.id)}>Close/Open</button>
-                    </div>
-                ))
-            }
-        </div>
+                            <div>
+                                <button onClick = {()=>deleteTodo(item.id, item.title)}>Delete</button>
+                                <button onClick = {()=>editTodo(item.id, item.title)}>Edit</button>
+                                <button onClick = {()=>statusTodo(item.id, item.title)}>Close/Open</button>
+                            </div>
+                       }
+                   </div>
+               ))
+           }
+       </div>
     )
 }
 export default ListTodo;
