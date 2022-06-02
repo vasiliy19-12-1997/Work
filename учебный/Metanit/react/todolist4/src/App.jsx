@@ -26,9 +26,9 @@ function App() {
 
   return (
     <div className="App">
-      <Header></Header>
-      <AddTodo></AddTodo>
-      <ListTodo></ListTodo>
+      <Header todo={todo} setTodo={setTodo}></Header>
+      <AddTodo todo={todo} setTodo={setTodo}></AddTodo>
+      <ListTodo todo={todo} setTodo={setTodo}></ListTodo>
     </div>
   );
 }
