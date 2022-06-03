@@ -3,9 +3,9 @@ import {v1 as uuid} from 'uuid';
 import {v3} from 'uuid';
 import s from './AddTodo.module.css';
 
-function AddTodo({todo, setTodo}){
+function AddTodo({todo, setTodo, title}){
     const [value, setValue] = useState('');
-    function saveTodo(id){
+    function saveTodo(id, title){
         setTodo(
             [...todo, {
                 id: uuid(v3),
@@ -16,9 +16,10 @@ function AddTodo({todo, setTodo}){
         setValue('');
     }
     return(
-        <div>
+        
+        <div className={s.root}>
             <input value={value} onChange ={(e)=>setValue(e.target.value)}/>
-            <button onClick={saveTodo}>Save</button>
+            <button className={s.btn} onClick={()=>saveTodo(title)}>Save</button>
         </div>
     )
 }

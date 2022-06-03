@@ -1,5 +1,7 @@
 import React, {useState} from "react";
 import s from './ListTodo.module.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Button from 'react-bootstrap/Button';
 function ListTodo({todo, setTodo}){
   const [value, setValue] = useState('');
   const [edit, setEdit] = useState(null);
@@ -13,13 +15,13 @@ function ListTodo({todo, setTodo}){
             item.status = !item.status;
         }
         return item;
-    })
+    });
     setTodo(newTodo);
   }
-  function saveTodo(id, title){
+  function saveTodo(id){
     let newTodo = [...todo].map(item=>{
         if(item.id == id){
-            item.title = value
+            item.title = value;
         }
         return item;
     })
@@ -28,7 +30,7 @@ function ListTodo({todo, setTodo}){
   }
   function editTodo(id, title){
     setEdit(id);
-    setValue(title)
+    setValue(title);
   }
     
     // console.log(value);
@@ -36,10 +38,10 @@ function ListTodo({todo, setTodo}){
        <div>
            {
                todo.map(item=>(
-                   <div key = {item.id}>
+                   <div className={s.listItems}  key = {item.id}>
                        {
                            edit == item.id ?
-                           <div>
+                           <div  >
                                <input value={value} onChange={(e)=>setValue(e.target.value)}/>
                            </div>
                            :
@@ -48,13 +50,13 @@ function ListTodo({todo, setTodo}){
                        {
                            edit == item.id ?
                             <div>
-                                <button onClick = {()=>saveTodo(item.id, item.title)}>Save</button>
+                                <Button className={s.btn} onClick = {()=>saveTodo(item.id, item.title)}>Save</Button>
                             </div>
                             :
                             <div>
-                                <button onClick = {()=>deleteTodo(item.id, item.title)}>Delete</button>
-                                <button onClick = {()=>editTodo(item.id, item.title)}>Edit</button>
-                                <button onClick = {()=>statusTodo(item.id, item.title)}>Close/Open</button>
+                                <Button className={s.btn}  onClick = {()=>deleteTodo(item.id, item.title)}>Delete</Button>
+                                <Button className={s.btn} onClick = {()=>editTodo(item.id, item.title)}>Edit</Button>
+                                <Button className={s.btn} onClick = {()=>statusTodo(item.id, item.title)}>Close/Open</Button>
                             </div>
                        }
                    </div>
