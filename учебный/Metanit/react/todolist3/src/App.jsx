@@ -4,6 +4,7 @@ import Header from './components/Header/Header';
 import AddTodo from './components/AddTodo/AddTodo';
 import ListTodo from './components/ListTodo/ListTodo';
 import React, {useState} from 'react';
+import { Container } from 'react-bootstrap';
 
 function App() {
    const[todo, setTodo] = useState([
@@ -25,11 +26,11 @@ function App() {
    ]);
    console.log(todo);
   return (
-    <div className="App">
+    <Container> className="App">
      <Header todo={todo} setTodo={setTodo}></Header>
      <AddTodo todo={todo} setTodo={setTodo}></AddTodo>
      <ListTodo todo={todo} setTodo={setTodo}></ListTodo>
-    </div>
+    </Container>
   );
 }
 

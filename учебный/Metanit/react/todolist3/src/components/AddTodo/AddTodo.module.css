@@ -13,3 +13,6 @@
 .btn{
     margin-left: 10px;
 }
+.root:focus{
+    background-color:blue;
+}

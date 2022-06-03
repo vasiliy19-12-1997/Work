@@ -13,5 +13,8 @@
     background-color: #BFC9CA;
     border-radius: 8px;
     padding: 6px;
-
+}
+.listItems:focus{
+    background-color: aquamarine;
+   
 }
