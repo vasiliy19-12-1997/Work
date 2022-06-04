@@ -1,10 +1,10 @@
 import React,{ useState } from "react";
-import {v1 as uuid} from 'uuid';
-import {v3} from 'uuid';
-import s from './AddTodo.module.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
-// import Button from 'react-bootstrap/Button';
-import {Row, Col, Button, FormControl} from 'react-bootstrap';
+import {v1 as uuid} from 'uuid'
+import {v3} from 'uuid'
+import s from './AddTodo.module.css'
+import 'bootstrap/dist/css/bootstrap.min.css'
+// import Button from 'react-bootstrap/Button'
+import {Row, Col, Button, FormControl} from 'react-bootstrap'
 function AddTodo({todo, setTodo, title}){
     const [value, setValue] = useState('');
     function saveTodo(){
