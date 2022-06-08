@@ -1,7 +1,14 @@
 import React from 'react';
 import PostItem from './PostItem';
 //мы знаем что наши пропсы это объект поэтмоу сделаем деструктуризацию
-const PostList = ({props, posts, title, remove}) => {
+const PostList = ({posts, title, remove}) => {
+    if(!posts.length) {
+        return (
+            <h1 style ={{textAlign: 'center'}}>
+          {title}
+        </h1>
+        )
+    }
     return (
         <div>
             <h1 style={{textAlign: 'center'}}>

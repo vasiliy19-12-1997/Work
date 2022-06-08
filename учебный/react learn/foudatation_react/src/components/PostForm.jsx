@@ -10,7 +10,7 @@ const PostForm = ({create}) => {
       const addNewPost=(e)=>{
           e.preventDefault();
         const newPost = {
-            ...post, id: Date.now(), title: '' 
+            ...post, id: Date.now() 
         }
         create(newPost);
         setPost(
@@ -27,18 +27,19 @@ const PostForm = ({create}) => {
         {/* Управляемый компонент */}
         <MyInput
         value={post.title} 
-        action="" 
-        placeholder="Название поста"
+        
         //мы изменяем нужное для нас поле а все остальное 
         onChange={(e)=>setPost({...post, title:e.target.value })}
+        type='text'
+        placeholder="Название поста"
 
         />
         {/* Неуправляемый компонент */}
         <MyInput
         value={post.body}
-        action="" 
-        placeholder="Описание поста" 
         onChange = {(e)=>setPost({...post, body:e.target.value })}
+        type='text' 
+        placeholder="Описание поста" 
         /> 
         <MyButton onClick={addNewPost}>Create post</MyButton>
       </form>
