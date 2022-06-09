@@ -8,30 +8,20 @@ import MyInput from "./components/UI/input/MyInput";
 import PostForm from "./components/PostForm";
 import MySelect from "./components/UI/select/MySelect";
 import PostFilter from "./components/PostFilter";
+import MyModale from "./components/UI/MyModal/MyModale";
+import { usePosts } from "./hooks/usePosts";
 function App() {
   
-  const [posts, setPosts] = useState([
-    {id: 1, title: 'JS', body: 'fdfdfd'},
-    {id: 2, title: 'TS', body: 'fsassz'},
-    {id: 3, title: 'C#', body: '1545'},
-
-  ])
+  const [posts, setPosts] = useState([])
   const [filter, setFilter] = useState({sort: '', query: ''});
-  
-  const sortedPosts = useMemo( () =>{
-   console.log('Отработала')
-   if(filter.sort){
-     return ([...posts].sort((a, b) => a[filter.sort].localeCompare(b[filter.sort])))
-   }
-   return posts;
-} , [filter.sort,  posts])
+  const [modal, setModal] = useState(false);
+  const sortedAndSearchPosts = usePosts(posts, filter.sort, filter.query)
 
-const sortedAndSearchPosts = useMemo(() =>{
-  return sortedPosts.filter(post => post.title.toLowerCase().includes(filter.query))
-}, [filter.query, sortedPosts])
+
 
   const createPost = (newPost)=>{
     setPosts([...posts, newPost])
+    setModal(false)
   }
   //получаем post из дочернегно элемента
   const removePost = (post) => {
@@ -46,7 +36,13 @@ const sortedAndSearchPosts = useMemo(() =>{
 
     return (
       <div className="App">
+      <MyButton style={{marginTop: '30px'}} onClick = {() => setModal(true)}>
+      Создать пользователя
+      </MyButton>
+      <MyModale visile={modal} setVisible={setModal}>
       <PostForm create={createPost}/>
+      </MyModale>
+      
       <hr style={{margin: '15px 0px'}}/>
       <PostFilter filter={filter} setFilter = {setFilter}/>
       <PostList remove = {removePost} posts={sortedAndSearchPosts} title='Список постов 1'/>
