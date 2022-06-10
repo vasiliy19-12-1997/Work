@@ -1,6 +1,8 @@
 import React from "react";
-import { BrowserRouter, Route } from "react-router-dom";
-import About from "./pages/About";
+import { BrowserRouter, Routes, Route, Link, Switch } from "react-router-dom";
+import AppRouter from "./components/AppRouter";
+import Navbar from "./components/UI/Navbar/Navbar";
+
 
 
 function App() {
@@ -10,9 +12,8 @@ function App() {
 
     return (
       <BrowserRouter>
-        <Route path="/About">
-          <About/>
-        </Route>
+        <Navbar/>
+        <AppRouter/>
       </BrowserRouter>
     );
   }
