@@ -12,9 +12,9 @@ function App() {
 
     return (
       <BrowserRouter>
-        <Navbar/>
-        <AppRouter/>
-      </BrowserRouter>
+      <Navbar/>
+      
+  </BrowserRouter>
     );
   }
 
