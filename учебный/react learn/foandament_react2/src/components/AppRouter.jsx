@@ -9,11 +9,11 @@ import { routes } from '../router';
 const AppRouter = () => {
     return (
         <Routes>
-            {routes.map(route =>{
+            {routes.map(route =>(
                 <Route 
                 component = {route.component} 
                 path = {route.path}/> 
-            })}
+            ))}
           </Routes>
         
     );
