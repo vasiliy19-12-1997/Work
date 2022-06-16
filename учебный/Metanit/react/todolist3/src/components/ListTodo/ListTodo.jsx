@@ -6,7 +6,7 @@ function ListTodo({todo, setTodo}){
   const [value, setValue] = useState('');
   const [edit, setEdit] = useState(null);
   function deleteTodo(id){
-    let newTodo = [...todo].filter(item=>item.id!=id);
+    let newTodo = [...todo].filter(item=>item.id!==id);
     setTodo(newTodo);
   }
   function statusTodo(id){

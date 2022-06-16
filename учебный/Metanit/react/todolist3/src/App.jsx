@@ -1,9 +1,9 @@
 import logo from './logo.svg';
-import './App.css';
+import './styles/App.css';
 import Header from './components/Header/Header';
 import AddTodo from './components/AddTodo/AddTodo';
 import ListTodo from './components/ListTodo/ListTodo';
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import { Container } from 'react-bootstrap';
 
 function App() {
@@ -24,12 +24,20 @@ function App() {
       status: false,  
     },
    ]);
-   console.log(todo);
+  //  const [clicks, setClicks] = useState(
+  //   JSON.parse(localStorage.getItem('clicks')) || []
+  //  )
+
+  //  useEffect(() => {
+  //   localStorage.setItem('clicks', JSON.stringify(clicks))
+  //  }, [clicks])
+   
+   
   return (
-    <Container> className="App">
+    <Container className={App}>
      <Header todo={todo} setTodo={setTodo}></Header>
      <AddTodo todo={todo} setTodo={setTodo}></AddTodo>
-     <ListTodo todo={todo} setTodo={setTodo}></ListTodo>
+     <ListTodo  todo={todo} setTodo={setTodo}></ListTodo>
     </Container>
   );
 }

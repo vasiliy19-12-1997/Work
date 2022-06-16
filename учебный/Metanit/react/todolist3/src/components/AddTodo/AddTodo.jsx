@@ -15,6 +15,7 @@ function AddTodo({todo, setTodo, title}){
                 title: value,
             }]
         );
+        
         setValue('');
     }
     return(
