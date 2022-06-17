@@ -40,7 +40,7 @@ export const App: React.FC =()=>{
                 }}/>
             </section>
             <section className={s.articleSection}>
-                {tasks.length && (
+                {!tasks.length && (
                     <p className={s.articleText}>Нету task</p>
                 )}
                 {tasks.map((task)=>(
