@@ -1,0 +1,14 @@
+.article {
+    min-width: 600px;
+    background: white;
+    min-height: 450px;
+    border-radius: 20px;
+    // padding: px ;
+    &Title {
+        font-size: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+}
