@@ -9,7 +9,7 @@ interface Task {
 interface TaskToDo {
     tasks: Task[],
     createTask:(title: string) => void,
-    updateTask:(title: string, id: string, ) => void,
+    updateTask:(title: string, id: string) => void,
     removeTask:( id: string) => void,
     
 }
@@ -43,7 +43,7 @@ export const useToDoStore = create<TaskToDo> ((set, get) => ({
 
 
     },
-    updateTask: (title, id)=>{
+    updateTask: (id:string, title:string)=>{
         const {tasks} = get();
         set({
             tasks: tasks.map(task=>({
