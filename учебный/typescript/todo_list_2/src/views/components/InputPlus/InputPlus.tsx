@@ -18,7 +18,8 @@ export const InputPlus: React.FC<InputPlusProps>=({
             <input
             value={inputValue}
             type="text" 
-            className={s.inputText}
+            className={s.inputPlusValue}
+            placeholder='Add Task...'
             onChange={e=>setInputValue(e.target.value)}
             onKeyDown={e=>{
                 if(e.key === 'Enter'){
@@ -28,11 +29,11 @@ export const InputPlus: React.FC<InputPlusProps>=({
             />
             <button
             onClick={addTask}
-            className={s.inputButton}
+            className={s.inputPlusButton}
+            />
+            
 
-            >
-
-            </button>
+            
         </div>
     );
 };

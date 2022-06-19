@@ -1,14 +1,16 @@
 .article {
     min-width: 600px;
     background: white;
-    min-height: 450px;
+    padding: 20px 55px 30px;
     border-radius: 20px;
-    // padding: px ;
+    margin-bottom: 15px;
     &Title {
-        font-size: 60px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        font-size: 40px;
+        margin-bottom: 0.3em;
+        text-align: center;
+    }
+    &Section {
+        // align-items: center;
     }
 
 }

@@ -44,7 +44,7 @@ export const InputTask: React.FC<InputTaskProps>=({
                 type="text"
                 value={value}
                 onChange={e=>setValue(e.target.value)} 
-                className={s.inputTaskText}
+                className={s.inputTaskEditText}
                 onKeyDown={e=>{
                     if(e.key==='Enter'){
                         onEdited(id, value)
@@ -55,13 +55,14 @@ export const InputTask: React.FC<InputTaskProps>=({
             )
             :
             (
-                <h3 className={s.inputTaskTitle}>{title}</h3>
+                <h3 className={s.inputTaskText}>{title}</h3>
 
             )
         }
+         </label>
         {isEditMode?(
              <button
-                className={s.inputTaskButton}
+                className={s.inputTaskSave}
                 aria-label='Save'
                 onClick={()=>{
                     onEdited(id, title)
@@ -72,7 +73,7 @@ export const InputTask: React.FC<InputTaskProps>=({
          :
          (
             <button
-                className={s.inputTaskButton}
+                className={s.inputTaskEdit}
                 aria-label='Edit'
                 onClick={()=>{
                     setIsEditMode(true)
@@ -81,7 +82,7 @@ export const InputTask: React.FC<InputTaskProps>=({
          )   
         }
         <button
-            className={s.inputTaskButton}
+            className={s.inputTaskRemove}
             aria-label='Remove'
             onClick={()=>{
                 if(confirm('Are you sure?/Вы уверены?')){
@@ -89,7 +90,7 @@ export const InputTask: React.FC<InputTaskProps>=({
                 }
             }}
         />
-        </label>
+       
         </div>
     );
 };
