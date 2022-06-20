@@ -9,16 +9,15 @@ export const App: React.FC=()=>{
     createTask,
     updateTask,
     removeTask,
+   
+    
    ]  = useToDoStore(state =>[
-    state.tasks,
-    state.createTask,
-    state.updateTask,
-    state.removeTask,
+   state.tasks,
+   state.createTask,
+   state.updateTask,
+   state.removeTask,
 ]);
-useEffect(()=>{
-    createTask('')
-},[])
-console.log(tasks)
+
 
 // useEffect(()=>{
 //     updateTask('fdf', 'fdf')
@@ -26,31 +25,30 @@ console.log(tasks)
 // console.log(updateTask)
     return (
         <article className={s.article}>
-            <h3 className={s.articleTitle}>To do App</h3>
-            <section className={s.articleSection}>
-            <InputPlus
-            onAdd={title=>{
-                if(title){
-                    createTask(title)
-                }
-            }}
-            />
-            </section>
-            <section className={s.articleSection}>
-                {tasks.map(task=>(
-                    <InputTask
-                    id={task.id}
-                    title={task.title}
-                    onDone={removeTask}
-                    onEdited={updateTask}
-                    onRemoved={removeTask}
-                    key={task.id}
-                    />
-                ))}
-                
-                
+          <h3 className={s.articleTitle}>To Do App</h3>
+            <section>
+                <InputPlus
+                onAdd={title=>{
+                    if(title){
+                        createTask(title)
+                    }
+                }}
+                />
             </section>
             
+            <section>
+                {tasks.map(task=>(
+                     <InputTask 
+                        id={task.id}
+                        title={task.title}
+                        onDone={removeTask}
+                        onEdited={updateTask}
+                        onRemove={removeTask}
+                        key={task.id}
+                />
+                ))}
+               
+            </section>
 
                 
             
