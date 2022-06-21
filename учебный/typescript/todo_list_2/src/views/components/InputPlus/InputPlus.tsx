@@ -1,39 +1,32 @@
-import React, {useCallback, useState} from 'react';
+import React, {useState, useCallback} from "react";
 import s from './InputPlus.module.scss';
-
 interface InputPlusProps {
     onAdd:(title:string)=>void;
 }
-
-export const InputPlus: React.FC<InputPlusProps>=({
-   onAdd,
+export const InputPlus:React.FC<InputPlusProps>=({
+    onAdd,
 })=>{
     const [inputValue, setInputValue] = useState('');
     const addTask = useCallback(()=>{
         onAdd(inputValue)
         setInputValue('')
-    },[inputValue])
+    }, [inputValue])
     return (
         <div className={s.inputPlus}>
-            <input
-            className={s.inputPlusValue} 
-            type="text"
-            placeholder='Add some words...'
+           <input
+            className={s.inputPlusInput}
             value={inputValue}
-            onChange={e=>setInputValue(e.target.value)}
-            onKeyDown={e=>{
-                if(e.key === 'Enter'){
-                    addTask()
-                }
-            }}
-            />
-            <button
-            className={s.inputPlusButton}
-            onClick={addTask}
-            />
-            
+            onChange={c=>setInputValue(c.target.value)} 
+           type="text" 
+           />
+           <button
+           className={s.inputPlusButton}
+           onClick={addTask}
+           />
         </div>
-    );
-};
+    )
+
+}
+   
 
 export default InputPlus;

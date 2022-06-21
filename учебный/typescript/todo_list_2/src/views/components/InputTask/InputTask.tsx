@@ -1,109 +1,103 @@
-import React, {useCallback, useRef, useState, useEffect} from 'react';
+import React, {useState, useCallback, useRef, useEffect} from "react";
 import s from './InputTask.module.scss';
-
 interface InputTaskProps {
-   id: string,
-   title:string,
-   onDone:(id:string)=>void,
-   onEdited:(id: string, title: string)=>void,
-   onRemove:(id:string)=>void,
+    id:string,
+    title:string,
+    onDone:(id:string)=>void,
+    onUpdate:(id:string, title:string)=>void,
+    onRemove:(id:string)=>void
 
 }
-export const InputTask: React.FC<InputTaskProps>=({
+export const InputTask:React.FC<InputTaskProps>=({
     id,
     title,
     onDone,
-    onEdited,
-    onRemove,
+    onUpdate,
+    onRemove
 })=>{
-    const [checked, setChecked] = useState(false);
     const [value, setValue] = useState('');
-    const [isEditMode, setIsEditMode] = useState(false);
-    const editTitleInputRef = useRef <HTMLInputElement>(null)
+    const [checked, setChecked] = useState(false);
+    const [isEditMode, setIsEditMode]=useState(false);
+    const editTitleInputRef = useRef<HTMLInputElement>(null);
     useEffect(()=>{
         if(isEditMode){
             editTitleInputRef?.current?.focus()
         }
-    },[isEditMode])
+    })
+    console.log(onUpdate)
 
-   
+    
     return (
         <div className={s.inputTask}>
-            <label className={s.inputTaskLabel}>
-                <input type="checkbox" 
+            <label>
+            <input
+                className={s.inputTaskInput}
+                type="checkbox"
+                disabled={isEditMode}
                 checked={checked}
                 onChange={e=>{
                     setChecked(e.target.checked)
                     if(e.target.checked){
                         setTimeout(()=>{
                             onDone(id)
-                        }, 300)
+                        },300)
                     }
                 }}
-                />
-               
-                {isEditMode ?(
-                     <input 
-                     ref={editTitleInputRef}
-                     type="text"
-                     value={value}
-                     onChange={e=>setValue(e.target.value)}
-                     onKeyDown={e=>{
-                        if(e.key === 'Enter'){
-                            onEdited(id, value);
-                            setIsEditMode(false);
-                        }
-                    }}
-                     />
-                ):
-                (
-                    <h3 className={s.inputTaskTitle}>{title}</h3>
-                )
-                
-            }
-            </label>
-            
-            {isEditMode ?(
-                   <button
-                   className={s.inputTaskSave}
-               aria-label='Save'
-               onClick={()=>{
-                   onEdited(id, value)
-                   setIsEditMode(false)
-               }}
-               onKeyDown={e=>{
-                if(e.key==='Enter'){
-                    onEdited(id, value)
-                }
-               }}
-               /> 
-            )
-            :
-            (
-                <button
-                className={s.inputTaskEdit}
-                aria-label='Edit'
-                onClick={()=>{
-                  setIsEditMode(true)
+            />
+            {isEditMode?(
+            <input
+                ref={editTitleInputRef}
+                value={value}
+                onChange={e=>setValue(e.target.value)}
+                className={s.inputTaskInput}
+                onKeyDown={e=>{
+                    if(e.key === 'Enter'){
+                        onUpdate(id, value)
+                        setIsEditMode(false)
+                    }
                 }}
-                 />
-            )
+                
+                type="text" />
+                ):(
+                <h3 className={s.InputTaskTitle}>{title}</h3>
+                )
+            }
+        </label>
+        {isEditMode ?(
+            <button
+                className={s.inputTaskSave}
+                aria-label='Save'
+                onClick={()=>{
+                    onUpdate(value, id)
+                    setIsEditMode(false)
+                }}
+        
+            />
+        ):(
+            <button
+            className={s.inputTaskEdit}
+            aria-label='Edit'
+            onClick={()=>{
+                setIsEditMode(true)
+            }}
+         
+        />
+       
+        )
         }
-                <button
-                    aria-label='Delete'
-                    className={s.inputTaskRemove}
-                    onClick={()=>{
-                        if(confirm('Вы уверены?/Are you sure?'))
-                        onRemove(id)
-                    }}
-                 />
-               
-               
-            
-            
-            
-            
+           <button
+                className={s.inputTaskDelete}
+                aria-label='Delete'
+                onClick={()=>{
+                    if(confirm('Точно надо удалить?'))
+                    onRemove(id)
+                }}
+            />
+          
         </div>
-    );
-};
+    )
+
+}
+   
+
 export default InputTask;
