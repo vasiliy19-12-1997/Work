@@ -17,7 +17,12 @@ export const InputPlus:React.FC<InputPlusProps>=({
             className={s.inputPlusInput}
             value={inputValue}
             onChange={c=>setInputValue(c.target.value)} 
-           type="text" 
+            type="text"
+            placeholder="Add some tasks..." 
+            onKeyDown={e=>{
+                if(e.key === 'Enter')
+                addTask()
+            }}
            />
            <button
            className={s.inputPlusButton}

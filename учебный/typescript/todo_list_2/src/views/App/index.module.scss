@@ -1,0 +1,13 @@
+.article {
+    min-width: 600px;
+    background: #F9F7F7;
+    padding: 20px 55px 30px;
+    border-radius: 20px;
+    box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.25);
+    &Title{
+        font-size: 40px;
+        text-align: center;
+        color: #112D4E;
+        margin-bottom: 0.3em;
+    }
+}

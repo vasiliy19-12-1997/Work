@@ -29,9 +29,9 @@ export const InputTask:React.FC<InputTaskProps>=({
     
     return (
         <div className={s.inputTask}>
-            <label>
+            <label className={s.inputTaskLabel}>
             <input
-                className={s.inputTaskInput}
+                className={s.inputTaskCheckbox}
                 type="checkbox"
                 disabled={isEditMode}
                 checked={checked}
@@ -49,7 +49,7 @@ export const InputTask:React.FC<InputTaskProps>=({
                 ref={editTitleInputRef}
                 value={value}
                 onChange={e=>setValue(e.target.value)}
-                className={s.inputTaskInput}
+                className={s.inputTaskEditTitle}
                 onKeyDown={e=>{
                     if(e.key === 'Enter'){
                         onUpdate(id, value)
