@@ -1,5 +1,5 @@
 import React, {useCallback, useEffect, useState, useRef} from "react";
-import s from './inputTask.module.scss';
+import s from './index.module.scss';
 import create from "zustand/react";
 
 interface InputTaskProps {
@@ -22,13 +22,13 @@ export const InputTask: React.FC<InputTaskProps>=({
    const [checked, setChecked] = useState(false);
    const [isEditMode, setIsEditMode] = useState(false);
    const [value, setValue] = useState(title);
-   const editTitleInputRef = useRef <HTMLInputElement>(null)
-
+   const editTitleInputRef = useRef<HTMLInputElement>(null);
    useEffect(()=>{
     if(isEditMode){
         editTitleInputRef?.current?.focus();
     }
-   },[isEditMode]);
+   }, [isEditMode])
+  
 
     return (
         <div className={s.inputTask}>
@@ -50,7 +50,7 @@ export const InputTask: React.FC<InputTaskProps>=({
             {isEditMode ?(
                 <input 
                 value={value}
-                ref = {editTitleInputRef}
+                ref={editTitleInputRef}
                 onChange ={e=>{
                     setValue(e.target.value)
                 }}
@@ -95,7 +95,7 @@ export const InputTask: React.FC<InputTaskProps>=({
           
            <button
               aria-label="Remove"
-              className={s.inputTaskDelete}
+              className={s.inputTaskRemove}
               onClick={()=>{
                if(confirm('Are you sure?')){
                 onRemoved(id)

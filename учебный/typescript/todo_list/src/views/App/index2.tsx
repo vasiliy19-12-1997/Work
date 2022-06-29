@@ -33,11 +33,11 @@ export const App: React.FC =()=>{
             <h1 className={s.articleTitle}>To Do App</h1>
             <section className={s.articleSection}>
                 <InputPlus 
-                onAdd={(title)=>{
-                    if(title) {
-                        createTask(title)
-                    }
-                }}/>
+              onAdd={(title)=>{
+                if(title){
+                    createTask(title)
+                }
+              }}/>
             </section>
             <section className={s.articleSection}>
                 {!tasks.length && (
@@ -48,12 +48,19 @@ export const App: React.FC =()=>{
                     id = {task.id}
                     title = {task.title}
                     onDone={removeTask}
-                    onEdited={updateTask}
+                    onEdited={(id, title)=>{
+                        if(title){
+                            updateTask(id, title)
+                        }
+                    }
+                    }
+                        
                     onRemoved={removeTask}
                     key = {task.id}
                     />
                 ))}
             </section>
+          
         </article>
     );
 }

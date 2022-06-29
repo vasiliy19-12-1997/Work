@@ -1,7 +1,9 @@
 import React from "react";
 import s from './index.module.scss';
+import { devtools } from 'zustand/middleware';
+import create, {State, StateCreator} from 'zustand';
 import { generateId } from "./helper";
-import create from "zustand/react";
+
 interface Task {
     id:string,
     title:string,
@@ -14,10 +16,38 @@ interface ToDoStore {
     removeTask:(id:string)=>void,
     removeAll:(id:string)=>void,
 }
+function isToDoStore(object: any ): object is ToDoStore {
+    return 'tasks' in object;
+}
+const localeStorageUpdate = <T extends State>(config: StateCreator<T>):StateCreator<T> => (set, get, api) =>
+  config(
+    (nextState, ...args) => {
+        console.log(nextState)
+        if (isToDoStore(nextState)){
+            
+      window.localStorage.setItem('tasks', JSON.stringify(
+        nextState.tasks
+      ))
+    }
+    set(nextState, ...args);
+    },
+    get,
+    api
+  );
+  const getCurrentState =()=>{
+    try{
+        const currentState = (JSON.parse(window.localStorage.getItem('tasks') ||
+  '[]')) as Task[];
+  return currentState;
+    }catch(e){
+        window.localStorage.setItem('tasks', '[]');
+        }
+    return [];
+  }
+  
 
-
-export const useToDoStore = create<ToDoStore> ((set, get)=>({
-    tasks:[],
+export const useToDoStore = create<ToDoStore>(localeStorageUpdate(devtools ((set, get)=>({
+    tasks:getCurrentState(),
     createTask:(title)=>{
         const {tasks} = get();
         const newTask = {
@@ -50,7 +80,7 @@ export const useToDoStore = create<ToDoStore> ((set, get)=>({
             tasks:tasks
         })
     },
-}))
+}))));
 
 
    
