@@ -17,8 +17,8 @@ function ListToDoItems() {
           checked = {t.done}
           />
           <Input
-          value={t.title}
-          onChange={e=>t.title = e.target.value}
+          value={t.text}
+          onChange={e=>t.text = e.target.value}
           />
           <Button
           onClick={()=>todosStore.deleteTodo(t.id)}
