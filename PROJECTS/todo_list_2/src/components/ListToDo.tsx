@@ -9,11 +9,9 @@ import { observer } from 'mobx-react-lite'
 function ListToDoItems() {
  
   return (
-    <div>
-        <h3>Todo</h3>
-       
-        {todosStore.tasks.map((t)=>(
-        <Flex key={t.id}>
+        <>
+         {todosStore.tasks.map((t)=>(
+        <Flex pt={2} key={t.id}>
           <Checkbox
           onClick= {()=>t.done =! t.done}
           checked = {t.done}
@@ -24,11 +22,14 @@ function ListToDoItems() {
           />
           <Button
           onClick={()=>todosStore.deleteTodo(t.id)}
-          />
+          >
+          Delete
+          </Button>
+        
         </Flex>
     ))}
-      
-    </div>
+     </>
+  
   )
 }
 const ObservedTodoListItems = observer(ListToDoItems);
