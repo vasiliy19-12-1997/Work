@@ -1,33 +1,44 @@
-import React, { useCallback, useEffect, useState } from 'react'
-import todosStore from '../store/Store'
-import { Task } from '../interface/Interface'
 
+import todosStore from '../store/Store'
+
+import { Button, Input, Flex, Checkbox, Heading } from "@chakra-ui/react";
 import { observer } from 'mobx-react-lite'
 
 
 
-function ListToDo() {
+function ListToDoItems() {
  
   return (
     <div>
         <h3>Todo</h3>
        
         {todosStore.tasks.map((t)=>(
-        <label key={t.id}>
-         
-                <input type="text"
-                value={t.title}
-                onChange={e=>t.title = e.target.value}
-                 />
-                <button
-                onClick={()=>todosStore.deleteTodo(t.id)}
-                >Save</button>
-          
-         
-        </label>
+        <Flex key={t.id}>
+          <Checkbox
+          onClick= {()=>t.done =! t.done}
+          checked = {t.done}
+          />
+          <Input
+          value={t.title}
+          onChange={e=>t.title = e.target.value}
+          />
+          <Button
+          onClick={()=>todosStore.deleteTodo(t.id)}
+          />
+        </Flex>
     ))}
       
     </div>
   )
 }
-export default (ListToDo)
+const ObservedTodoListItems = observer(ListToDoItems);
+
+function TodoList() {
+  return (
+    <>
+      <Heading>Todo List</Heading>
+      <ObservedTodoListItems />
+    </>
+  );
+}
+export default (TodoList)

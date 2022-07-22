@@ -1,27 +1,21 @@
+import { Box, ChakraProvider, theme } from '@chakra-ui/react';
 import React from 'react';
-import { ListFormat } from 'typescript';
+
 import './App.css';
 import AddTodo from './components/AddTodo';
-import Increment from './components/Increment';
-import ListToDo from './components/ListToDo';
-import todosStore from './store/Store';
+
+import TodoList from './components/ListToDo';
 
 
-function App() {
+
+export function App() {
   return (
-    <div className="App">
-     
-        {/* <Increment 
-          title={''} 
-          id={0} 
-          done={false} 
-          description={''}        
-        /> */}
-        <ListToDo/>
-      
+    <ChakraProvider theme={theme}>
+      <Box>
+        <TodoList/>
         <AddTodo/>
-          
-    </div>
+      </Box>
+    </ChakraProvider>
   );
 }
 
