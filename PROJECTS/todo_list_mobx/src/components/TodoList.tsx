@@ -5,26 +5,24 @@ import todosStore from '../store/Store'
 
 
 function TodoListItems() {
-
   return (
     <>
-  {todosStore.tasks.map((t)=>(
-    <Flex pt={2} key = {t.id}>
+    {todosStore.tasks.map((t)=>(
+      <Flex pt={2} key = {t.id}>
         <Checkbox
-        onClick={()=>(t.done = !t.done)}
-        checked={t.done}
+          onClick={()=>(t.done = !t.done)}
+          checked={t.done}
         />
         <Input
-        value = {t.text}
-        onChange = {(e)=>(t.text = e.target.value)}
+          value = {t.text}
+          onChange = {(e)=>(t.text = e.target.value)}
         />
         <Button
-        onClick = {()=>todosStore.removeTodo(t.id)}
+          onClick = {()=>todosStore.removeTodo(t.id)}
         >
-            Delete
+          Delete
         </Button>
-
-    </Flex>
+      </Flex>
   ))}
     </>
   )
@@ -32,10 +30,10 @@ function TodoListItems() {
 const ObservableTodoListItems = observer(TodoListItems);
 function TodoList(){
     return(
-    <>
-    <Heading>ToDo</Heading>
-    <ObservableTodoListItems/>
-    </>
+      <>
+        <Heading>ToDo</Heading>
+        <ObservableTodoListItems/>
+      </>
     )
 }
 export default TodoList;

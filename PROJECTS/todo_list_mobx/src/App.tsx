@@ -11,11 +11,10 @@ import Bar from "./components/Bar"
 
 export const App = () => (
   <ChakraProvider theme={theme}>
-<Box maxWidth='8x1' margin='auto' p={5}>
-<Bar/>
-  <TodoList/>
-  <AddToDo/>
-  
-</Box>
+    <Box maxWidth='8x1' margin='auto' p={5}>
+      <Bar/>
+      <TodoList/>
+      <AddToDo/>
+    </Box>
   </ChakraProvider>
 )

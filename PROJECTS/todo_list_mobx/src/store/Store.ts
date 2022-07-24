@@ -15,24 +15,21 @@ class Todo {
     tasks:Task[] = [];
     newTodo: string=''
     
-
     constructor(){
         makeAutoObservable(this)
     }
-addTodo(){
-   
-    this.tasks = addTodo(this.tasks, this.newTodo)
-    this.newTodo = ''
-}
-removeTodo(id: number){
-    this.tasks = removeTodo(this.tasks, id)
-}
-load(url:string){
-    fetch(url)
-    .then((t)=>t.json())
-    .then((t:Task[])=>todosStore.tasks = t)
-}
-  
+    addTodo(){
+        this.tasks = addTodo(this.tasks, this.newTodo)
+        this.newTodo = ''
+    }
+    removeTodo(id: number){
+        this.tasks = removeTodo(this.tasks, id)
+    }
+    load(url:string){
+        fetch(url)
+        .then((t)=>t.json())
+        .then((t:Task[])=>todosStore.tasks = t)
+    }
 }
 const todosStore = new Todo();
 export default todosStore;
