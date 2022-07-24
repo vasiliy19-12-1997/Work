@@ -1,7 +1,7 @@
 import { Button, Checkbox, Flex, Heading, Input, Grid } from '@chakra-ui/react'
 import { observer } from "mobx-react";
 import React from 'react'
-import { ColorModeSwitcher } from '../ColorModeSwitcher';
+import { ColorModeSwitcher } from './ColorModeSwitcher';
 import todosStore from '../store/Store'
 
 
@@ -12,10 +12,7 @@ function Bar() {
   return (
     <Grid pt={2} templateColumns='1fr 1fr' columnGap='3' >
       <ColorModeSwitcher/>
-      <Button
-        onClick={onLoad}>
-      Load...
-      </Button>
+      <Button onClick={onLoad}>Load...</Button>
     </Grid>
   )
 }

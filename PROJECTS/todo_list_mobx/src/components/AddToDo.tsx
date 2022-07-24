@@ -20,7 +20,8 @@ function AddToDo() {
           }}
       />
       <Button
-        onClick={()=>todosStore.addTodo()}
+        onClick={
+          ()=>todosStore.addTodo()}
       >Save</Button>
     </Grid>
   )
