@@ -1,5 +1,4 @@
-import { Button, Checkbox, Flex, Heading, Input, Grid } from '@chakra-ui/react'
-import { observer } from "mobx-react";
+import { Button, Grid } from '@chakra-ui/react'
 import React from 'react'
 import { ColorModeSwitcher } from './ColorModeSwitcher';
 import todosStore from '../store/Store'
