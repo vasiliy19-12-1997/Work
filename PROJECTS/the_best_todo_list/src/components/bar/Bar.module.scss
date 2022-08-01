@@ -1,0 +1,19 @@
+.Bar {
+    display: grid;
+    grid-template-columns: 32px 100px 400px 32px 32px 32px 32px ;
+    padding-top: 20px;
+   
+
+    align-items:center;
+   &Menu, &Settings, &Question, &NewFeatures, &Profile {
+    height: 20px;
+    
+    
+   }
+   &Input {
+    justify-content: center;
+    align-items:center;
+    display: flex;
+   
+   }
+}

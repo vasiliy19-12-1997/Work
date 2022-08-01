@@ -1,0 +1,11 @@
+.AddTodo {
+    display: grid;
+    grid-template-columns: 20px 1fr;
+    padding-top: 20px;
+    &Input {
+
+    }
+    &Save{
+        height: 20px;
+    }
+}
