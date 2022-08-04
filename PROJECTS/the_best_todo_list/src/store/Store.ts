@@ -4,6 +4,7 @@ import { makeAutoObservable } from "mobx";
 import { Task } from './../interface/Interface';
   
 class Store {
+  
   tasks: Task[] = [];
   newTask= {
     id:Math.random(),
@@ -15,6 +16,7 @@ class Store {
  }
   addTodo(){
   this.tasks.push(this.newTask)
+  console.log(this.tasks, this.newTask)
  }
 
 
@@ -24,5 +26,5 @@ class Store {
 
  
 }
-
-export default createContext(new Store());
+const todosStore = new Store();
+export default todosStore;

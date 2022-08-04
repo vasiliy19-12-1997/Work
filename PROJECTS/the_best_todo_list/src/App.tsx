@@ -1,22 +1,30 @@
-import React from 'react';
-
+import React, { useEffect, useState } from 'react';
+import axios, { AxiosError } from 'axios';
 import './App.css';
 import AddTodo from './components/addtodo/AddTodo';
-import Bar from './components/bar/Bar';
-
 import TodoList from './components/listtodo/ListTodo';
-import MyDay from './components/myday/MyDay';
+import { ToTask } from './components/task/ToTask';
+import { tasks } from './data/Tasks';
+import { ITask } from './Models';
+import { UseTasks } from './customHooks/UseTasks';
+import Loader from './components/loader/Loader';
+import ErrorMessage from './components/error/ErrorMessage';
 
 function App() {
+const {tasks, loading, error} = UseTasks()
   return (
     <div className="App">
-      <Bar/>
-      <MyDay/>
-      <AddTodo/>
+      
+     <AddTodo/>
       <TodoList/>
+      {loading &&<Loader/>}
+      {tasks.map(p=><ToTask task={p} key={p.id} />)}
+      {error && <ErrorMessage error={error}/>}
+      
       
     </div>
   );
 }
+
 
 export default App;

@@ -20,4 +20,4 @@ function MyDay() {
     </div>
     );
 }
-export default observer(MyDay)
+export default MyDay;

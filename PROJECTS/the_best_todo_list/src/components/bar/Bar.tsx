@@ -1,7 +1,6 @@
 import React from "react";
 import s from './Bar.module.scss'
 
-import { observer } from 'mobx-react-lite';
 function Bar() {
   return( 
      <div className={s.Bar}>
@@ -42,4 +41,4 @@ function Bar() {
         
     );
 }
-export default observer(Bar)
+export default Bar;
