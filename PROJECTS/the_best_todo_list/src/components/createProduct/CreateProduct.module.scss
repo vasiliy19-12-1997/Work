@@ -1,0 +1,14 @@
+.CreateProduct{
+    &Input{
+        border: 1px solid gray ;
+        width: 100%;
+    }
+    &button{
+        transition: opacity 0.3;
+        text-decoration: white;
+        &:hover{
+            opacity: 0.7;
+            
+        }
+    }
+}

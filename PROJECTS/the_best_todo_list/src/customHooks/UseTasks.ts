@@ -8,6 +8,9 @@ export function UseTasks(){
     const [tasks, setTasks] = useState<ITask[]>([]);
     const [loading, setLoading] = useState(false);
     const [error, setError]= useState('');
+    function addTask(product: ITask){
+      setTasks(prev=>[...prev, product])
+    }
 async function fetchTasks() {
   try {
     setError('')
@@ -25,5 +28,5 @@ async function fetchTasks() {
 useEffect(()=>{
   fetchTasks()
 },[])
-return {tasks, loading, error}
+return {tasks, loading, error, addTask}
 }

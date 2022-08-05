@@ -4,15 +4,19 @@ import './styles/common.scss';
 import './styles/reset.scss'
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { ModalState } from './context/ModalContext';
+import { BrowserRouter } from 'react-router-dom';
 
 const container = document.getElementById("root")
 if (!container) throw new Error('Failed to find the root element');
 const root = ReactDOM.createRoot(container)
 
 root.render(
-    <React.StrictMode>
+    <BrowserRouter>
+    <ModalState>
     <App />
-    </React.StrictMode>
+    </ModalState>
+    </BrowserRouter>
 );
 // serviceWorker.unregister()
 // If you want to start measuring performance in your app, pass a function
