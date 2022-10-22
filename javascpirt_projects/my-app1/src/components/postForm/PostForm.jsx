@@ -7,7 +7,7 @@ const PostForm = ({ create }) => {
 
   const addNewPost = (e) => {
     e.preventDefault();
-    console.log(post);
+
     const newPost = {
       ...post,
       id: Math.random(),

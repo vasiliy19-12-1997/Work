@@ -1,7 +1,19 @@
 import React from "react";
 
-const Myselect = ({ option }) => {
-  return <select></select>;
+const MySelect = ({ options, defaultValue, value, onChange }) => {
+  return (
+    //значение которое выюрал пользователь
+    <select value={value} onChange={(e) => onChange(e.target.value)}>
+      <option disabled value="">
+        {defaultValue}
+      </option>
+      {options.map((option) => (
+        <option key={option.value} value={option.value}>
+          {option.name}
+        </option>
+      ))}
+    </select>
+  );
 };
 
-export default Myselect;
+export default MySelect;
