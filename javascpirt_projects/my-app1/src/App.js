@@ -1,15 +1,13 @@
-import React, { useState, useRef, useId, useMemo } from "react";
-import PostItem from "./components/postItem/PostItem";
+import React, { useState } from "react";
+
 import PostList from "./components/postList/PostList";
-import MyButton from "./components/ui/button/MyButton";
-import MyInput from "./components/ui/input/MyInput";
-import { usePosts } from "./components/hooks/UsePosts";
+
+import { usePosts } from "./components/hooks/usePosts";
 
 import PostForm from "./components/postForm/PostForm";
-import MySelect from "./components/ui/select/MySelect";
+
 import PostFilter from "./components/postFilter/PostFilter";
-import ClassCounter from "./components/counter/ClassCounter";
-import MyModal from "./components/ui/myModal/MyModal";
+
 function App() {
   const [posts, setPosts] = useState([]);
   const [filter, setFilter] = useState({ sort: "", query: "" });
