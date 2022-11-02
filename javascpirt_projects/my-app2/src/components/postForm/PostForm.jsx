@@ -5,7 +5,8 @@ import MyInput from "../ui/myInput/MyInput";
 const PostForm = ({ create }) => {
   const [post, setPost] = useState({ body: "", title: "" });
   const addNewPost = (e) => {
-    e.preventDefault();
+
+    
     const newPost = {
       ...post,
       id: Math.random(),
