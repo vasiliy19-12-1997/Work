@@ -13,10 +13,7 @@ function App() {
     setPosts([...posts, newPost]);
   };
   const deletePost = (post) => {
-    setPosts(posts.filter((p) => p.id !== post.id));
-  };
-  const deletePosts = (post) => {
-    setPosts(posts.filter((p) => p.id !== post.id));
+    setPosts(posts.filter((p) => post.id !== p.id));
   };
 
   return (
@@ -25,7 +22,7 @@ function App() {
        */}
 
       <PostForm create={createPost} />
-      <PostList vasya={deletePosts} remove={deletePost} posts={posts} />
+      <PostList remove={deletePost} posts={posts} />
     </div>
   );
 }

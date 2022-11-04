@@ -1,7 +1,7 @@
 import React from "react";
 import PostItem from "../postItem/PostItem";
 
-const PostList = ({ posts, title, remove, vasya }) => {
+const PostList = ({ posts, title, remove }) => {
   if (!posts.length) {
     return <h1>Posts doent found</h1>;
   }
@@ -10,7 +10,6 @@ const PostList = ({ posts, title, remove, vasya }) => {
       <h1>{title}</h1>
       {posts.map((post, index) => (
         <PostItem
-          vasya={vasya}
           remove={remove}
           post={post}
           number={index + 1}
