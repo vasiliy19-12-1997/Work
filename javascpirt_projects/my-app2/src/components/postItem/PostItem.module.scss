@@ -1,0 +1,14 @@
+%button {
+  display: grid;
+  grid-template-rows: auto;
+}
+.PostItem {
+  width: 600px;
+  &Text {
+    display: flex;
+    justify-content: space-between;
+  }
+  &Button {
+    @extend %button;
+  }
+}

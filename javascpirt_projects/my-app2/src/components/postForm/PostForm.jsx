@@ -26,8 +26,9 @@ const PostForm = ({ create }) => {
         value={post.body}
         onChange={(e) => setPost({ ...post, body: e.target.value })}
       />
-
-      <MyButton onClick={addNewPost}>Create</MyButton>
+      <div className={s.PostFormButton}>
+        <MyButton onClick={addNewPost}>Create</MyButton>
+      </div>
     </div>
   );
 };

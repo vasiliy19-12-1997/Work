@@ -1,12 +1,17 @@
 .MyButton {
-  width: 150px;
-  height: 30px;
+  font-weight: 700;
+  color: white;
   text-decoration: none;
-  padding-top: 9px;
-  color: #a675b3;
-  text-align: center;
-  line-height: 20px;
-  display: block;
-  margin: 20px auto;
-  font: normal 17px arial;
+  padding: 0.8em 1em calc(0.8em + 3px);
+  border-radius: 3px;
+  background: rgb(64, 199, 129);
+  box-shadow: 0 -3px rgb(53, 167, 110) inset;
+  // transition: 0.2s;
+  &:hover {
+    background: rgb(53, 167, 110);
+  }
+  &:active {
+    background: rgb(33, 147, 90);
+    box-shadow: 0 3px rgb(33, 147, 90) inset;
+  }
 }
