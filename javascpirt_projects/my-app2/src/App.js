@@ -9,31 +9,27 @@ import MySelect from "./components/ui/mySelect/MySelect";
 import s from "./App.module.scss";
 import PostFilter from "./components/postFilter/PostFilter";
 import MyModal from "./components/ui/myModal/MyModal";
+import usePosts from "./components/hooks/usePosts";
+import axios from "axios";
+import Loader from "./components/ui/loader/Loader";
+import PostService from "./components/api/postService/PostService";
+import useFetching from "./components/hooks/useFetching";
+import pages from "./utils/pages";
 function App() {
-  const [posts, setPosts] = useState([
-    {
-      title: "fdfd",
-      body: "fdfdf",
-      id: Math.random(),
-    },
-  ]);
+  const [posts, setPosts] = useState([]);
   const [filter, setFilter] = useState({ sort: "", query: "" });
   const [modal, setModal] = useState(false);
-  const sortedPosts = useMemo(() => {
-    console.log("функция работает");
-    if (filter.sort) {
-      return [...posts].sort((a, b) =>
-        a[filter.sort].localeCompare(b[filter.sort])
-      );
-    }
-    return posts;
-  }, [filter.sort, posts]);
-  const sortedAndSearchPosts = useMemo(() => {
-    return sortedPosts.filter((post) =>
-      post.title.toLowerCase().includes(filter.query.toLowerCase())
-    );
-  }, [filter.query, sortedPosts]);
-
+  const sortedAndSearchPosts = usePosts(posts, filter.sort, filter.query);
+  const [totalPages, setTotalPages] = useState(0);
+  const [limit, setLimit] = useState(10);
+  const [page, setPage] = useState(10);
+  const [fetchPosts, isPostLoading, postError] = useFetching(async () => {
+    const response = await PostService.getALL(limit, page);
+    setPosts(response.data);
+    const totalCount = response.headers["x-total-count"];
+    setTotalPages(pages(totalCount, limit));
+  });
+  console.log(totalPages);
   const createPost = (newPost) => {
     setPosts([...posts, newPost]);
     setModal(false);
@@ -47,6 +43,7 @@ function App() {
   }
   return (
     <div className={s.AppDiv}>
+      <MyButton onClick={fetchPosts}>Get Posts</MyButton>
       <MyButton style={{ margin: "25px" }} onClick={() => setModal(true)}>
         Создать{" "}
       </MyButton>
@@ -58,8 +55,12 @@ function App() {
 
       <hr style={{ margin: "15px" }}></hr>
       <PostFilter filter={filter} setFilter={setFilter} />
-
-      <PostList remove={deletePost} posts={sortedAndSearchPosts} />
+      {postError && <h1>Error ${postError}</h1>}
+      {isPostLoading ? (
+        <Loader />
+      ) : (
+        <PostList remove={deletePost} posts={sortedAndSearchPosts} />
+      )}
     </div>
   );
 }
