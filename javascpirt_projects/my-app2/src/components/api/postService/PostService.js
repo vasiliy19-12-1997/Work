@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import { Component } from "react";
 import axios from "axios";
 export default class PostService extends Component {
   static async getALL(limit = 10, page = 1) {

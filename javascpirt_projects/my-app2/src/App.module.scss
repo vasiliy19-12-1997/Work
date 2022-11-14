@@ -3,13 +3,27 @@
   padding: 0px;
   box-sizing: border-box;
 }
-.AppDiv {
+.App {
   height: auto;
   width: auto;
   background-color: blanchedalmond;
   display: flex;
   flex-direction: column;
   align-items: center;
+  &DivSpan {
+    margin-top: 30px;
+    display: flex;
+
+    &S {
+      padding: 10px;
+      border: 1px solid teal;
+      cursor: pointer;
+    }
+    &Current {
+      border: 2px solid orange;
+      font-weight: 1000;
+    }
+  }
 }
 .post-enter {
   transform: translateX(-350px);
