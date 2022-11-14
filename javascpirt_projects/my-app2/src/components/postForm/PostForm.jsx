@@ -4,7 +4,7 @@ import MyInput from "../ui/myInput/MyInput";
 import s from "./PostForm.module.scss";
 const PostForm = ({ create }) => {
   const [post, setPost] = useState({ body: "", title: "" });
-  const addNewPost = (e) => {
+  const addNewPost = () => {
     const newPost = {
       ...post,
       id: Math.random(),
