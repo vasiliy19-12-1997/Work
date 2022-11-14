@@ -1,0 +1,17 @@
+.MyButton {
+  font-weight: 700;
+  text-decoration: none;
+  color: #fff;
+  background: rgb(64, 199, 129);
+  padding: 10px;
+  border: 3px solid teal;
+  box-shadow: 0 -3px rgb(53, 167, 110) inset;
+
+  &:hover {
+    background: rgb(53, 167, 110);
+  }
+  &:active {
+    background: rgb(33, 147, 90);
+    box-shadow: 0 3px rgb(33, 147, 90) inset;
+  }
+}
