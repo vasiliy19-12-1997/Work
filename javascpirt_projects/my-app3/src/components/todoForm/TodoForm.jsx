@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
 import MyButton from "../ui/myButton/MyButton";
 import MyInput from "../ui/myInput/MyInput";
-const TodoForm = ({ create }) => {
+const TodoForm = ({ create }, props, setTodos) => {
   const [todo, setTodo] = useState({ body: "", title: "" });
   const addNewTodos = () => {
     const newTodos = {

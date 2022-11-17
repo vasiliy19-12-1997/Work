@@ -8,6 +8,7 @@ import TodoFilter from "./components/todoFilter/TodoFilter";
 function App() {
   const [todos, setTodos] = useState([]);
   const [filter, setFilter] = useState({ sort: "", query: "" });
+  const [edit, setEdit] = useState(false);
 
   const createTodos = (newTodos) => {
     setTodos([...todos, newTodos]);
@@ -15,14 +16,6 @@ function App() {
   const deleteTodos = (todo) => {
     setTodos(todos.filter((p) => p.id !== todo.id));
   };
-  const sortedTodos = useMemo(
-    (sort) => {
-      if (sort) {
-        setTodos([...todos].sort((a, b) => a[sort].localeCompare(b[sort])));
-      }
-    },
-    [filter, todos]
-  );
 
   return (
     <div className={s.App}>

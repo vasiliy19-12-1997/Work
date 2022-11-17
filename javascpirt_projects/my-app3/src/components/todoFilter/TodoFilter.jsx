@@ -1,8 +1,13 @@
-import React from "react";
+import React, { useMemo } from "react";
 import MyInput from "../ui/myInput/MyInput";
 import MySelect from "../ui/mySelect/MySelect";
 
-const TodoFilter = ({ filter, setFilter }) => {
+const TodoFilter = ({ filter, setFilter }, todos, props, setTodos) => {
+  const sortedTodos = useMemo((sort) => {
+    if (sort) {
+      setTodos([...props.todos].sort((a, b) => a[sort].localeCompare(b[sort])));
+    }
+  }, []);
   return (
     <div>
       <MyInput
