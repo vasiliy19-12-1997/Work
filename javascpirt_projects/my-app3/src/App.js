@@ -20,7 +20,11 @@ function App() {
   return (
     <div className={s.App}>
       <TodoForm create={createTodos} />
-      <ToDoList remove={deleteTodos} todos={todos}></ToDoList>
+      <ToDoList
+        post={{ id: 1, body: "По заголовку", title: "По названию" }}
+        remove={deleteTodos}
+        todos={todos}
+      ></ToDoList>
       <TodoFilter filter={filter} setFilter={setFilter} />
     </div>
   );

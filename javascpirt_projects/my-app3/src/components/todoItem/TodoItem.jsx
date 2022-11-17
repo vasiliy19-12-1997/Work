@@ -16,12 +16,14 @@ const TodoItem = (props) => {
       editTitleInputRef.current.focus();
     }
   });
+  console.log(props.post.description);
   return (
     <div className={s.TodoItem}>
       <div className={s.TodoItemText}>
         <strong>
           {props.number}.{props.todo.title}
         </strong>
+
         <div>{props.todo.body}</div>
       </div>
       {isEditMode ? <MyButton>Save</MyButton> : <MyButton>Edit</MyButton>}
