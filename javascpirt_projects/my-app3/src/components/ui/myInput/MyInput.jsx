@@ -1,9 +1,9 @@
 import React from "react";
-
+import s from "./MyInput.module.scss";
 const MyInput = (props) => {
   return (
-    <div>
-      <input {...props} type="text" />
+    <div className={s.MyInput}>
+      <input className={s.MyInputInp} {...props} type="text" />
     </div>
   );
 };

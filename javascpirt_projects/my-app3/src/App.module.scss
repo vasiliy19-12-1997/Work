@@ -5,9 +5,10 @@
 }
 .App {
   height: auto;
-  width: auto;
+  min-width: 800px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-top: 20px;
 }

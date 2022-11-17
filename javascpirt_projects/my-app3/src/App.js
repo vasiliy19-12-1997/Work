@@ -1,20 +1,34 @@
-import React, { useState } from "react";
+import React, { useMemo, useState } from "react";
 import MyButton from "./components/ui/myButton/MyButton";
 import s from "./App.module.scss";
 import TodoForm from "./components/todoForm/TodoForm";
 import ToDoList from "./components/todoList/TodoList";
+import MySelect from "./components/ui/mySelect/MySelect";
+import TodoFilter from "./components/todoFilter/TodoFilter";
 function App() {
-  const [todos, setTodos] = useState([
-    { id: Math.random(), title: "Js", body: "language of programming1" },
-    { id: Math.random(), title: "Java", body: "language of programming2" },
-    { id: Math.random(), title: "Python", body: "language of programming3" },
-  ]);
-  const createTodos = (newTodos) => {};
-  console.log(todos);
+  const [todos, setTodos] = useState([]);
+  const [filter, setFilter] = useState({ sort: "", query: "" });
+
+  const createTodos = (newTodos) => {
+    setTodos([...todos, newTodos]);
+  };
+  const deleteTodos = (todo) => {
+    setTodos(todos.filter((p) => p.id !== todo.id));
+  };
+  const sortedTodos = useMemo(
+    (sort) => {
+      if (sort) {
+        setTodos([...todos].sort((a, b) => a[sort].localeCompare(b[sort])));
+      }
+    },
+    [filter, todos]
+  );
+
   return (
     <div className={s.App}>
-      <ToDoList todos={todos}></ToDoList>
-      <MyButton>Удалить</MyButton>
+      <TodoForm create={createTodos} />
+      <ToDoList remove={deleteTodos} todos={todos}></ToDoList>
+      <TodoFilter filter={filter} setFilter={setFilter} />
     </div>
   );
 }

@@ -3,8 +3,7 @@ import MyButton from "../ui/myButton/MyButton";
 import MyInput from "../ui/myInput/MyInput";
 const TodoForm = ({ create }) => {
   const [todo, setTodo] = useState({ body: "", title: "" });
-  const addNewTodos = (e) => {
-    e.preventDefault();
+  const addNewTodos = () => {
     const newTodos = {
       ...todo,
       id: Math.random(),
@@ -25,7 +24,7 @@ const TodoForm = ({ create }) => {
         value={todo.body}
         onChange={(e) => setTodo({ ...todo, body: e.target.value })}
       />
-      <MyButton onClick={addNewTodos}>Создать</MyButton>
+      <MyButton onClick={addNewTodos}>Create Todo</MyButton>
     </div>
   );
 };

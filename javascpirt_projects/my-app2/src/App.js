@@ -28,8 +28,8 @@ function App() {
   });
   console.log(totalPages);
 
-  const createPost = (newPost) => {
-    setPosts([...posts, newPost]);
+  const createPost = (newPosts) => {
+    setPosts([...posts, newPosts]);
     setModal(false);
   };
 

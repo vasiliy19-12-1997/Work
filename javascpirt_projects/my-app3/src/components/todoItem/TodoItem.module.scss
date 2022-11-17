@@ -1,0 +1,11 @@
+.TodoItem {
+  display: grid;
+  grid-template-columns: 800px;
+  &Text {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 20px;
+    font-weight: 650;
+    font-size: 20px;
+  }
+}
