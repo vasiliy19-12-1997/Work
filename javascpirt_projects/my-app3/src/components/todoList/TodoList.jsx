@@ -1,8 +1,8 @@
 import React from "react";
 import TodoItem from "../todoItem/TodoItem";
-const TodoList = ({ todos, remove, post, title }) => {
+const TodoList = ({ todos, remove, title }) => {
   if (!todos.length) {
-    console.log(post);
+    <h1>Todos doesnt found</h1>;
     return (
       <h1 style={{ margin: "15px", color: "teal" }}>Todos doesnt found!</h1>
     );
@@ -11,7 +11,7 @@ const TodoList = ({ todos, remove, post, title }) => {
     <div>
       <h1>{title}</h1>
       {todos.map((todo) => (
-        <TodoItem todo={todo} key={todo.id}></TodoItem>
+        <TodoItem remove={remove} todo={todo} key={todo.id}></TodoItem>
       ))}
     </div>
   );
