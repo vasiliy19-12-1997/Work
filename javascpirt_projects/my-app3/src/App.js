@@ -1,4 +1,4 @@
-import React, { useMemo, useState, useRef } from "react";
+import React, { useMemo, useState, useRef, useEffect } from "react";
 import MyButton from "./components/ui/myButton/MyButton";
 import s from "./App.module.scss";
 import TodoForm from "./components/todoForm/TodoForm";
@@ -9,6 +9,7 @@ import TodoItem from "./components/todoItem/TodoItem";
 import TodoClassForm from "./components/todoForm/TodoClassForm";
 import MyInput from "./components/ui/myInput/MyInput";
 import { useTodos } from "./components/hooks/useTodos";
+import axios from "axios";
 function App() {
   const [todos, setTodos] = useState([]);
   // const [selectedSort, setSelectedSort] = useState("");
@@ -18,6 +19,11 @@ function App() {
   const sortedAndSearchTodos = useTodos(todos, filter.sort, filter.query);
   // const [edit, setEdit] = useState(false);
   // const [post, setPosts] = useState([]);
+  const vasya = (useEffect =
+    (() => {
+      console.log("USE EFFECT");
+    },
+    [filter]));
   const createTodos = (newTodo) => {
     setTodos([...todos, newTodo]);
   };
@@ -29,11 +35,17 @@ function App() {
   //   setTodos(todos.filter((t) => t.id === todo.id));
   // };
   // console.log(title);
-
+  async function fetchTodo() {
+    const response = await axios.get(
+      "https://jsonplaceholder.typicode.com/todos"
+    );
+    setTodos(response.data);
+  }
   return (
     <div className={s.App}>
+      <MyButton onClick={vasya} />
       <TodoForm create={createTodos} />
-
+      <MyButton onClick={fetchTodo} />
       {/* <TodoClassForm create={createTodos} /> */}
       <ToDoList
         remove={deleteTodos}

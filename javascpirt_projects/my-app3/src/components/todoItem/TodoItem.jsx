@@ -20,7 +20,7 @@ const TodoItem = (props) => {
     <div className={s.TodoItem}>
       <div className={s.TodoItemText}>
         <strong>
-          {props.number}.{props.todo.title}
+          {props.index}.{props.todo.title}
         </strong>
 
         <div>{props.todo.body}</div>
