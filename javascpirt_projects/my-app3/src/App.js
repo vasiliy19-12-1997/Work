@@ -10,6 +10,7 @@ import TodoClassForm from "./components/todoForm/TodoClassForm";
 import MyInput from "./components/ui/myInput/MyInput";
 import { useTodos } from "./components/hooks/useTodos";
 import axios from "axios";
+import PostServise from "./components/api/PostServise";
 function App() {
   const [todos, setTodos] = useState([]);
   // const [selectedSort, setSelectedSort] = useState("");
@@ -19,11 +20,12 @@ function App() {
   const sortedAndSearchTodos = useTodos(todos, filter.sort, filter.query);
   // const [edit, setEdit] = useState(false);
   // const [post, setPosts] = useState([]);
-  const vasya = (useEffect =
+  useEffect =
     (() => {
-      console.log("USE EFFECT");
+      fetchTodo();
+      console.log("Use EFFECT");
     },
-    [filter]));
+    []);
   const createTodos = (newTodo) => {
     setTodos([...todos, newTodo]);
   };
@@ -36,14 +38,11 @@ function App() {
   // };
   // console.log(title);
   async function fetchTodo() {
-    const response = await axios.get(
-      "https://jsonplaceholder.typicode.com/todos"
-    );
-    setTodos(response.data);
+    const todos = await PostServise.getAll();
+    setTodos(todos.data);
   }
   return (
     <div className={s.App}>
-      <MyButton onClick={vasya} />
       <TodoForm create={createTodos} />
       <MyButton onClick={fetchTodo} />
       {/* <TodoClassForm create={createTodos} /> */}
