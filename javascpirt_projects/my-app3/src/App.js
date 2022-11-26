@@ -12,7 +12,8 @@ import { useTodos } from "./components/hooks/useTodos";
 import TodoServise from "./components/api/TodoServise";
 import Loader from "./components/ui/loader/Loader";
 import { useFetching } from "./components/hooks/useFetching";
-import { getPageCount } from "./utils/page";
+import { getPageCount, getPagesArray } from "./utils/page";
+import Pagination from "./components/ui/pagination/Pagination";
 function App() {
   const [todos, setTodos] = useState([]);
   // const [selectedSort, setSelectedSort] = useState("");
@@ -23,33 +24,37 @@ function App() {
   const [totalPages, setTotalPages] = useState(1);
   const [filter, setFilter] = useState({ sort: "", query: "" });
   const sortedAndSearchTodos = useTodos(todos, filter.sort, filter.query);
-  const [fetching, isLoading, error] = useFetching(async () => {
+
+  const [fetching, isLoading, error] = useFetching(async (limit, page) => {
     const response = await TodoServise.getAll(limit, page);
     setTodos(response.data);
     const totalCount = response.headers["x-total-count"];
     setTotalPages(getPageCount(totalCount, limit));
   });
-  console.log(totalPages);
 
   // const [edit, setEdit] = useState(false);
   // const [post, setPosts] = useState([]);
-
+  useEffect =
+    (() => {
+      fetching(limit, page);
+    },
+    [page]);
   const createTodos = (newTodo) => {
     setTodos([...todos, newTodo]);
   };
   const deleteTodos = (todo) => {
     setTodos(todos.filter((p) => p.id !== todo.id));
   };
-  // console.log(filter.sort);
-  // const editTodos = (todo) => {
-  //   setTodos(todos.filter((t) => t.id === todo.id));
-  // };
-  // console.log(title);
 
+  const changePage = (page) => {
+    setPage(page);
+    fetching(limit, page);
+  };
   return (
     <div className={s.App}>
       <TodoForm create={createTodos} />
       <MyButton onClick={fetching} />
+      <TodoFilter filter={filter} setFilter={setFilter} />
       {/* <TodoClassForm create={createTodos} /> */}
       {error && <h1>Произошла ошибка ${error}</h1>}
       {isLoading ? (
@@ -63,8 +68,7 @@ function App() {
           title="Todo"
         ></ToDoList>
       )}
-
-      <TodoFilter filter={filter} setFilter={setFilter} />
+      <Pagination totalPages={totalPages} changePage={changePage} />
     </div>
   );
 }
