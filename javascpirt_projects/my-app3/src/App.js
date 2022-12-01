@@ -25,7 +25,7 @@ function App() {
       fetchTodo();
       console.log("Use EFFECT");
     },
-    []);
+    [filter]);
   const createTodos = (newTodo) => {
     setTodos([...todos, newTodo]);
   };

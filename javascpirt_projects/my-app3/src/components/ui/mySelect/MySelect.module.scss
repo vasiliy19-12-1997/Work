@@ -1,0 +1,11 @@
+.MySelect {
+  display: flex;
+  justify-content: center;
+  &Select {
+    width: 200px;
+    font-size: 15px;
+    font-weight: 650;
+    &Option {
+    }
+  }
+}
