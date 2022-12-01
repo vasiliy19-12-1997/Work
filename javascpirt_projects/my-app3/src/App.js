@@ -20,12 +20,12 @@ function App() {
 
   // const [searchQuery, setSearchQuery] = useState("");
   const [page, setPage] = useState(1);
-  const [limit, setLimit] = useState(10);
+  const [limit, setLimit] = useState(20);
   const [totalPages, setTotalPages] = useState(1);
   const [filter, setFilter] = useState({ sort: "", query: "" });
   const sortedAndSearchTodos = useTodos(todos, filter.sort, filter.query);
 
-  const [fetching, isLoading, error] = useFetching(async (limit, page) => {
+  const [fetching, isLoading, error] = useFetching(async () => {
     const response = await TodoServise.getAll(limit, page);
     setTodos(response.data);
     const totalCount = response.headers["x-total-count"];
@@ -34,6 +34,7 @@ function App() {
 
   // const [edit, setEdit] = useState(false);
   // const [post, setPosts] = useState([]);
+  console.log(totalPages);
   useEffect =
     (() => {
       fetching(limit, page);

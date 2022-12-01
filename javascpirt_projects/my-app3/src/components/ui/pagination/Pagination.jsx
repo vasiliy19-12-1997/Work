@@ -1,8 +1,8 @@
 import React from "react";
-import { getPagesArray } from "../../../utils/page";
+import { usePagination } from "../../hooks/usePagination";
 import s from "./Pagination.module.scss";
 const Pagination = ({ totalPages, changePage }) => {
-  let pagesArray = getPagesArray(totalPages);
+  let pagesArray = usePagination(totalPages);
   return (
     <div className={s.Pagination}>
       {pagesArray.map((t) => (
