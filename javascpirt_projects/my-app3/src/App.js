@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Navbar from "./components/ui/navbar/Navbar";
 import About from "./pages/About";
@@ -8,12 +8,19 @@ import AppRouter from "./components/AppRouter";
 import { AuthContext } from "./context/Context";
 const App = () => {
   const [isAuth, setIsAuth] = useState(false);
-  console.log(isAuth);
+  const [isLoading, setIsLoading] = useState(true);
+  useEffect(() => {
+    if (localStorage.getItem("auth")) {
+      setIsAuth(true);
+    }
+    setIsLoading(false);
+  }, []);
   return (
     <AuthContext.Provider
       value={{
         isAuth,
         setIsAuth,
+        isLoading,
       }}
     >
       <BrowserRouter>

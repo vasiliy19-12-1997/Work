@@ -36,7 +36,7 @@ const TodoIdPage = () => {
       ) : (
         <div>
           {comments.map((com) => (
-            <div style={{ marginTop: "15px" }}>
+            <div key={com.id} style={{ marginTop: "15px" }}>
               <h5>{com.email}</h5>
               <div>{com.body}</div>
             </div>

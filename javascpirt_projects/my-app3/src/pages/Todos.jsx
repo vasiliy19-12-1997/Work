@@ -26,12 +26,12 @@ function Todos() {
   console.log([pagesArray]);
   const [fetching, isLoading, error] = useFetching(async (limit, page) => {
     const response = await TodoServise.getAll(limit, page);
-    setTodos(response.data);
+    setTodos([...todos, ...response.data]);
     const totalCount = response.headers["x-total-count"];
     setTotalPages(getPageCount(totalCount, limit));
   });
   console.log(totalPages);
-
+  useEffect(() => {}, []);
   const createTodos = (newTodo) => {
     setTodos([...todos, newTodo]);
   };
@@ -41,7 +41,6 @@ function Todos() {
 
   const changePage = (page) => {
     setPage(page);
-    fetching(limit, page);
   };
   return (
     <div className={s.App}>
@@ -50,17 +49,17 @@ function Todos() {
       <TodoFilter filter={filter} setFilter={setFilter} />
       {/* <TodoClassForm create={createTodos} /> */}
       {error && <h1>Произошла ошибка ${error}</h1>}
-      {isLoading ? (
+      <ToDoList
+        remove={deleteTodos}
+        todos={sortedAndSearchTodos}
+        title="Todo"
+      ></ToDoList>
+      {isLoading && (
         <div style={{ margin: "50px" }}>
           <Loader></Loader>
         </div>
-      ) : (
-        <ToDoList
-          remove={deleteTodos}
-          todos={sortedAndSearchTodos}
-          title="Todo"
-        ></ToDoList>
       )}
+
       <Pagination totalPages={totalPages} changePage={changePage} page={page} />
     </div>
   );

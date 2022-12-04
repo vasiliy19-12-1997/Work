@@ -8,6 +8,7 @@ const Login = () => {
   const login = (e) => {
     e.preventDefault();
     setIsAuth(true);
+    localStorage.setItem("auth", "true");
   };
   return (
     <div>
@@ -15,7 +16,7 @@ const Login = () => {
       <form onSubmit={login}>
         <MyInput type="text" placeholder="enter login" />
         <MyInput type="password" placeholder="enter password" />
-        <MyButton>Log</MyButton>
+        <MyButton>Log in</MyButton>
       </form>
     </div>
   );
