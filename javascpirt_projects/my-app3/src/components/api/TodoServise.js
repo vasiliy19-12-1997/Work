@@ -13,4 +13,18 @@ export default class TodoServise {
 
     return response;
   }
+  static async getById(id) {
+    const response = await axios.get(
+      "https://jsonplaceholder.typicode.com/todos/" + id
+    );
+
+    return response;
+  }
+  static async getCommentsByTodoId(id) {
+    const response = await axios.get(
+      `https://jsonplaceholder.typicode.com/todos/${id}/comments`
+    );
+
+    return response;
+  }
 }
