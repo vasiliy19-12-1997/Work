@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import TodoServise from "./../components/api/TodoServise";
 
 import useTodos from "./../components/hooks/useTodos";
@@ -11,6 +11,8 @@ import TodoFilter from "./../components/todoFilter/TodoFilter";
 import Loader from "./../components/ui/loader/Loader";
 import Pagination from "./../components/ui/pagination/Pagination";
 import s from "./App.module.scss";
+import { useObserver } from "./../components/hooks/useObserver";
+import MySelect from "../components/ui/mySelect/MySelect";
 function Todos() {
   const [todos, setTodos] = useState([]);
   // const [selectedSort, setSelectedSort] = useState("");
@@ -22,15 +24,22 @@ function Todos() {
   const [filter, setFilter] = useState({ sort: "", query: "" });
   const sortedAndSearchTodos = useTodos(todos, filter.sort, filter.query);
   let pagesArray = getPagesAray(totalPages);
+  const lastElement = useRef();
 
-  console.log([pagesArray]);
+  console.log(lastElement);
+
   const [fetching, isLoading, error] = useFetching(async (limit, page) => {
     const response = await TodoServise.getAll(limit, page);
     setTodos([...todos, ...response.data]);
     const totalCount = response.headers["x-total-count"];
     setTotalPages(getPageCount(totalCount, limit));
   });
-  console.log(totalPages);
+  useObserver(lastElement, page < totalPages, isLoading, () => {
+    setPage(page + 1);
+  });
+  useEffect(() => {
+    fetching(limit, page);
+  }, [limit, page]);
   useEffect(() => {}, []);
   const createTodos = (newTodo) => {
     setTodos([...todos, newTodo]);
@@ -49,11 +58,30 @@ function Todos() {
       <TodoFilter filter={filter} setFilter={setFilter} />
       {/* <TodoClassForm create={createTodos} /> */}
       {error && <h1>Произошла ошибка ${error}</h1>}
+      <MySelect
+        value={limit}
+        onChange={(value) => setLimit(value)}
+        defaultValue={"Kol-vo elementov"}
+        options={[
+          { value: 5, name: "5" },
+          { value: 10, name: "10" },
+          { value: -1, name: "All" },
+        ]}
+      />
       <ToDoList
         remove={deleteTodos}
         todos={sortedAndSearchTodos}
         title="Todo"
       ></ToDoList>
+      <div
+        ref={lastElement}
+        style={{
+          height: 20,
+          background: "red",
+          display: "grid",
+          gridTemplateColumns: "800px",
+        }}
+      ></div>
       {isLoading && (
         <div style={{ margin: "50px" }}>
           <Loader></Loader>

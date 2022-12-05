@@ -15,7 +15,7 @@ const TodoIdPage = () => {
     const response = await TodoServise.getCommentsByTodoId(id);
     setTodo(response.data);
   });
-  console.log(params);
+
   useEffect(() => {
     fetchTodoId(params.id);
     fetchComments(params.id);

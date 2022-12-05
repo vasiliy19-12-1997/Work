@@ -9,7 +9,7 @@ const Navbar = () => {
     setIsAuth(false);
     localStorage.removeItem("auth");
   };
-  console.log(isAuth);
+
   return (
     <div className={s.Navbar}>
       <MyButton onClick={logout}>Log out</MyButton>
