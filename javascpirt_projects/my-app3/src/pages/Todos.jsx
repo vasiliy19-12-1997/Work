@@ -40,7 +40,7 @@ function Todos() {
   useEffect(() => {
     fetching(limit, page);
   }, [limit, page]);
-  useEffect(() => {}, []);
+
   const createTodos = (newTodo) => {
     setTodos([...todos, newTodo]);
   };

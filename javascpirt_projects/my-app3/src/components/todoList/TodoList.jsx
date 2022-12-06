@@ -1,6 +1,6 @@
 import React from "react";
 import TodoItem from "../todoItem/TodoItem";
-const TodoList = ({ todos, remove, title }) => {
+const TodoList = ({ remove, todos, title }) => {
   if (!todos.length) {
     <h1>Todos doesnt found</h1>;
     return (
