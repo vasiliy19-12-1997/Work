@@ -15,6 +15,7 @@ const AppRouter = () => {
   if (isLoading) {
     return <Loader />;
   }
+  //посмотреть почему не заходит в логин и в туду
   return isAuth ? (
     <Routes>
       {privateRoutes.map((route) => (
@@ -23,7 +24,7 @@ const AppRouter = () => {
     </Routes>
   ) : (
     <Routes>
-      {privateRoutes.map((route) => (
+      {publicRoutes.map((route) => (
         <Route element={<route.element />} path={route.path} key={route.path} />
       ))}
     </Routes>

@@ -54,14 +54,14 @@ function Todos() {
   return (
     <div className={s.App}>
       <TodoForm create={createTodos} />
-      <MyButton onClick={changePage} />
+
       <TodoFilter filter={filter} setFilter={setFilter} />
       {/* <TodoClassForm create={createTodos} /> */}
       {error && <h1>Произошла ошибка ${error}</h1>}
       <MySelect
         value={limit}
         onChange={(value) => setLimit(value)}
-        defaultValue={"Kol-vo elementov"}
+        defaultValue={"elements"}
         options={[
           { value: 5, name: "5" },
           { value: 10, name: "10" },

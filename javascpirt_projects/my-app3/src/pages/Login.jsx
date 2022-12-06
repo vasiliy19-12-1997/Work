@@ -3,12 +3,12 @@ import MyButton from "../components/ui/myButton/MyButton";
 import MyInput from "./../components/ui/myInput/MyInput";
 import { AuthContext } from "./../context/Context";
 
-const Login = () => {
+const Login = ({ todos }) => {
   const { isAuth, setIsAuth } = useContext(AuthContext);
   const login = (e) => {
     e.preventDefault();
     setIsAuth(true);
-    localStorage.setItem("auth", "true");
+    localStorage.setItem("Auth", "true");
   };
   return (
     <div>
@@ -18,6 +18,7 @@ const Login = () => {
         <MyInput type="password" placeholder="enter password" />
         <MyButton>Log in</MyButton>
       </form>
+      {/* если авторизовался то переходим на туду  */}
     </div>
   );
 };

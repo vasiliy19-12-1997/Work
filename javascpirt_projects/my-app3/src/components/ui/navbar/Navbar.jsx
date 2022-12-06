@@ -7,12 +7,14 @@ const Navbar = () => {
   const { isAuth, setIsAuth } = useContext(AuthContext);
   const logout = () => {
     setIsAuth(false);
-    localStorage.removeItem("auth");
+    //посмотреть 'auth or Auth'
+    localStorage.removeItem("Auth");
   };
 
   return (
     <div className={s.Navbar}>
       <MyButton onClick={logout}>Log out</MyButton>
+
       <div className={s.NavbarLinks}>
         <Link to="/about">About site</Link>
         <Link to="/todos">Todos</Link>
