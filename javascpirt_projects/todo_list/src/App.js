@@ -7,13 +7,15 @@ import s from "./App.module.scss";
 import TodoList from "./components/todoList/TodoList";
 function App() {
   const [todos, setTodos] = useState([
-    { title: "JS", completed: false, id: Math.random() },
-    { title: "TS", completed: false, id: Math.random() },
-    { title: "Python", completed: false, id: Math.random() },
+    { title: "JS", completed: true, id: Math.random() },
+    { title: "TS", completed: true, id: Math.random() },
+    { title: "Python", completed: true, id: Math.random() },
   ]);
+
   return (
     <div className={s.App}>
       <TodoForm />
+      {todos.title}
       <TodoList todos={todos} />
     </div>
   );

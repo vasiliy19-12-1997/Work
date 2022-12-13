@@ -5,12 +5,8 @@ import MyInput from "./../ui/myInput/MyInput";
 const TodoItem = (props) => {
   return (
     <div>
-      <div>
-        <strong>{props.todos.title}</strong>
-        <div></div>
-      </div>
-
-      <MyButton />
+      <div>{props.todo.title}</div>
+      <div></div>
     </div>
   );
 };
