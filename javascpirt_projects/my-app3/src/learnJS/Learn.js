@@ -109,22 +109,110 @@
 //     ? console.log("Нет логина")
 //     : console.log("");
 
-let age = 10;
+// let age = 10;
 // if (age >= 14 && age <= 90) {
 //   console.log("KRUTO");
 // }
 // if (!(age >= 14 && age <= 90)) {
 //   console.log("NE KRUTO");
 // }
-if (age <= 14 || age >= 90) {
-  console.log("NE KRUTO");
-}
-//   console.log("KRUTO");
-let login = "Admin";
-if (login === "Admin") {
-  console.log("Welcome");
-} else if (login === "Я главный") {
-  console.log("Здравствуйте!");
-} else {
-  console.log("Goodbya");
-}
+// if (age <= 14 || age >= 90) {
+//   console.log("NE KRUTO");
+// }
+// //   console.log("KRUTO");
+// let login = "Admin";
+// if (login === "Admin") {
+//   console.log("Welcome");
+// } else if (login === "Я главный") {
+//   console.log("Здравствуйте!");
+// } else {
+//   console.log("Goodbya");
+// }
+
+// let a = "Vasya";
+
+// if (a === "Edge") {
+//   alert("Youve got the Edge!");
+// } else if (
+//   a === "Chrome" ||
+//   a === "Firefox" ||
+//   a === "Safari" ||
+//   a === "Opera"
+// ) {
+//   alert("Okay we support these browsers too");
+// } else {
+//   alert("We hope that this page looks ok!");
+// }
+
+// let a = 0;
+// switch (a) {
+//   case 0:
+//     alert("Вы ввели число 0");
+//     break;
+//   case 1:
+//     alert("Вы ввели число 1");
+//     break;
+//   case 2:
+//   case 3:
+//     alert("Вы ввели число 2, а может и 3");
+
+//     break;
+//   default:
+//     break;
+// }
+// function show(a, b) {
+//   alert(`${a} + ${b}`);
+// }
+// show("vasya", "nikita");
+
+// let x = 5 ** 3;
+// console.log(x);
+// let sum = 0;
+// while (true) {
+//   let value = +prompt("Введите число", "");
+//   if (!value) break;
+//   sum += value;
+//   console.log(sum);
+// }
+// let a = 0.1;
+// let b = 0.3;
+// let c = a + b;
+// console.log(c);
+
+// for (let i = 0; i < 10; i++) {
+//   if (i % 2 === 0) continue;
+//   console.log(i);
+// }
+
+// function saleHotdogs(n) {
+//   if (n < 5) {
+//     return n * 100;
+//   } else if (n >= 5 && n < 10) {
+//     return n * 95;
+//   } else if (n >= 10) {
+//     return n * 90;
+//   }
+// }
+
+// const { assert } = require("chai");
+
+// describe("Tests", () => {
+//   it("Sample tests", () => {
+//     assert.strictEqual(saleHotdogs(1), 100);
+//     assert.strictEqual(saleHotdogs(4), 400);
+//     assert.strictEqual(saleHotdogs(5), 475);
+//     assert.strictEqual(saleHotdogs(9), 855);
+//     assert.strictEqual(saleHotdogs(10), 900);
+//     assert.strictEqual(saleHotdogs(100), 9000);
+//   });
+// });
+console.log(0.1 + 0.33);
+
+let arrayLike = {
+  0: "Hello",
+  1: "World",
+  length: 2,
+};
+
+let arr = Array.from(arrayLike); // (*)
+console.log(arr.pop());
