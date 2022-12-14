@@ -5,7 +5,10 @@ import MyInput from "./../ui/myInput/MyInput";
 const TodoItem = (props) => {
   return (
     <div>
-      <div>{props.todo.title}</div>
+      <div>
+        <strong>{props.todo.index}</strong>
+        <div>{props.todo.title}</div>
+      </div>
       <div></div>
     </div>
   );

@@ -11,6 +11,7 @@ function App() {
     { title: "TS", completed: true, id: Math.random() },
     { title: "Python", completed: true, id: Math.random() },
   ]);
+  const [filter, setFilter] = useState({ title: "", completed: true });
 
   return (
     <div className={s.App}>

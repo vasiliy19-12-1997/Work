@@ -1,7 +1,11 @@
 import React from "react";
-
-const MyInput = () => {
-  return <input></input>;
+import s from "./MyInput.module.scss";
+const MyInput = (props) => {
+  return (
+    <div className={s.MyInput}>
+      <input className={s.MyInputInput}></input>
+    </div>
+  );
 };
 
 export default MyInput;

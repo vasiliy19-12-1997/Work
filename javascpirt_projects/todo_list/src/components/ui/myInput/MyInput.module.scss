@@ -1,0 +1,9 @@
+.MyInput {
+  margin: 20px;
+
+  &Input {
+    font: inherit;
+    padding: 0.5em 0.6em;
+    min-width: 800px;
+  }
+}
