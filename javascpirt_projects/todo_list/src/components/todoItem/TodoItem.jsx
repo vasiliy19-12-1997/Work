@@ -9,7 +9,7 @@ const TodoItem = (props) => {
         <strong>{props.todo.index}</strong>
         <div>{props.todo.title}</div>
       </div>
-      <div></div>
+      <MyButton onClick={() => props.remove(props.todo)}>Delete</MyButton>
     </div>
   );
 };

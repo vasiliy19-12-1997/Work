@@ -11,13 +11,19 @@ function App() {
     { title: "TS", completed: true, id: Math.random() },
     { title: "Python", completed: true, id: Math.random() },
   ]);
-  const [filter, setFilter] = useState({ title: "", completed: true });
+  const createTodo = (newTodo) => {
+    setTodos([...todos, newTodo]);
+  };
+  const deleteTodo = (todo) => {
+    setTodos(todos.filter((t) => t.id !== todo.id));
+  };
+  console.log(todos);
 
   return (
     <div className={s.App}>
-      <TodoForm />
+      <TodoForm create={createTodo} />
       {todos.title}
-      <TodoList todos={todos} />
+      <TodoList remove={deleteTodo} todos={todos} />
     </div>
   );
 }
