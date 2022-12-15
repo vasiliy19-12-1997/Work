@@ -29,6 +29,16 @@ function App() {
   ]);
   // const [filter, setFilter] = useState();
   const [selectedSort, setSelectedSort] = useState("");
+  const getSortedTodos = () => {
+    if (selectedSort) {
+      return [...todos].sort((a, b) =>
+        a[selectedSort].localeCompare(b[selectedSort])
+      );
+    }
+    return todos;
+  };
+  const sortedTodos = getSortedTodos();
+
   const createTodo = (newTodo) => {
     setTodos([...todos, newTodo]);
   };
@@ -37,16 +47,13 @@ function App() {
   };
   const sortTodos = (sort) => {
     setSelectedSort(sort);
-    setTodos(
-      [...todos].sort((a, b) => a[sort].toLowerCase().localeCompare(b[sort]))
-    );
   };
 
   return (
     <div className={s.App}>
       <TodoForm create={createTodo} />
       {todos.title}
-      <TodoList remove={deleteTodo} todos={todos} />
+      <TodoList remove={deleteTodo} todos={sortedTodos} />
       <MySelect
         defaultValue="sort by"
         options={[
