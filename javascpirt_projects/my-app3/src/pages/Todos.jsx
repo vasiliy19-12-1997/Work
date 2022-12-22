@@ -54,6 +54,7 @@ function Todos() {
   return (
     <div className={s.App}>
       <TodoForm create={createTodos} />
+      <TodoForm create={createTodos} />
 
       <TodoFilter filter={filter} setFilter={setFilter} />
       {/* <TodoClassForm create={createTodos} /> */}
