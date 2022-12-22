@@ -55,6 +55,8 @@ function App() {
       {todos.title}
       <TodoForm create={createTodo} />
       {todos.title}
+      <TodoForm create={createTodo} />
+      {todos.title}
       <TodoList remove={deleteTodo} todos={sortedTodos} />
       <MySelect
         defaultValue="sort by"
