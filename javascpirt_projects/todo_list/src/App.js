@@ -53,6 +53,8 @@ function App() {
     <div className={s.App}>
       <TodoForm create={createTodo} />
       {todos.title}
+      <TodoForm create={createTodo} />
+      {todos.title}
       <TodoList remove={deleteTodo} todos={sortedTodos} />
       <MySelect
         defaultValue="sort by"
