@@ -15,6 +15,7 @@ const App = () => {
     }
     setIsLoading(false);
   }, []);
+
   return (
     <AuthContext.Provider
       value={{

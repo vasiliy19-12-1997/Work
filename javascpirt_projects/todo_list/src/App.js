@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from "react";
+import React, { useState, useEffect } from "react";
 import TodoForm from "./components/todoForm/TodoForm";
 import TodoItem from "./components/todoItem/TodoItem";
 import MyButton from "./components/ui/myButton/MyButton";
@@ -8,27 +8,18 @@ import TodoList from "./components/todoList/TodoList";
 import { useTodos } from "./components/hooks/useTodos";
 import MySelect from "./components/ui/mySelect/MySelect";
 import TodoFilter from "./components/todoFilter/TodoFilter";
+import axios from "axios";
+import TodoService from "./api/todoService/TodoService";
 function App() {
-  const [todos, setTodos] = useState([
-    {
-      title: "JS",
-      completed: true,
-      id: Math.random(),
-      body: "Javascript is the best",
-    },
-    {
-      title: "TS",
-      completed: true,
-      id: Math.random(),
-      body: "TypeScript is better",
-    },
-    {
-      title: "Python",
-      completed: true,
-      id: Math.random(),
-      body: "Python i dont know",
-    },
-  ]);
+  const [todos, setTodos] = useState([]);
+  const fetchTodo = async () => {
+    const todos = await TodoService.getAll();
+    setTodos(todos);
+  };
+
+  useEffect(() => {
+    fetchTodo();
+  }, []);
   const [filter, setFilter] = useState({ sort: "", query: "" });
 
   const sortedAndSearchTodos = useTodos(todos, filter.sort, filter.query);
@@ -41,6 +32,7 @@ function App() {
   };
   return (
     <div className={s.App}>
+      {/* <MyButton onClick={fetchTodo} /> */}
       <TodoForm create={createTodo} />
       {todos.title}
       <TodoFilter filter={filter} setFilter={setFilter} />
