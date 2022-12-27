@@ -1,30 +1,13 @@
-import React, { useRef } from "react";
-import MyButton from "./../ui/myButton/MyButton";
-import MyInput from "./../ui/myInput/MyInput";
+import React from "react";
 
 const TodoItem = (props) => {
-  const check = useRef();
-  const removes = () => {
-    if (check) {
-      setTimeout(() => {
-        return props.remove(props.todo);
-      }, 500);
-    }
-  };
   return (
     <div>
-      <div>
-        <strong>{props.todo.index}</strong>
-        <div>{props.todo.title}</div>
-        <div>{props.todo.body}</div>
-        <input
-          onChange={removes}
-          ref={check}
-          value={props.todo.completed}
-          type="checkbox"
-        ></input>
-      </div>
-      <MyButton onClick={() => props.remove(props.todo)}>Delete</MyButton>
+      {/* <h3>{props.todo.index}</h3> */}
+      <div>{props.todo.title}</div>
+      <div>{props.todo.body}</div>
+
+      <button>Delete</button>
     </div>
   );
 };
