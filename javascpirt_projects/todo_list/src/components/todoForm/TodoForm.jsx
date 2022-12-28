@@ -27,7 +27,7 @@ const TodoForm = ({ create }) => {
         placeholder="body"
         onChange={(e) => setTodo({ ...todo, body: e.target.value })}
       />
-      <MyButton onClick={createTask}>Create Todo</MyButton>
+      <MyButton onClick={createTask}>Create Todos</MyButton>
     </div>
   );
 };
