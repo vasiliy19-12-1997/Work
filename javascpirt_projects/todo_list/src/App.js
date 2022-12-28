@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import TodoFilter from "./components/todoFilter/TodoFilter";
 import TodoForm from "./components/todoForm/TodoForm";
 import TodoItem from "./components/todoItem/TodoItem";
 import TodoList from "./components/todoList/TodoList";
@@ -13,6 +14,7 @@ function App() {
     { title: "C#", id: Math.random(), completed: false, body: "si sharp" },
   ]);
   const [sort, setSort] = useState("");
+
   const createTodo = (newTask) => {
     setTodos([...todos, newTask]);
   };
@@ -20,15 +22,23 @@ function App() {
     setTodos([...todos].filter((t) => t.id !== todo.id));
   };
   const sortTodos = () => {
-    setSort();
+    setSort(sort);
+    console.log(sort);
   };
-  console.log(sort);
 
   return (
     <div>
       <TodoForm create={createTodo} />
       <MyInput />
-      <MySelect value={sort} onChange={sortTodos} />
+      {/* <TodoFilter sort={sort} setSort={setSort} /> */}
+      <MySelect
+        value={sort}
+        onChange={sortTodos}
+        options={[
+          { value: "title", name: "on title" },
+          { value: "body", name: "on body" },
+        ]}
+      />
       <TodoList remove={deleteTodo} todos={todos} />
     </div>
   );

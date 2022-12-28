@@ -1,16 +1,15 @@
 import React from "react";
 
-const MySelect = ({ value, onChange }) => {
+const MySelect = ({ value, onChange, options }) => {
   return (
-    <div>
-      <div>
-        <select value={value} onChange={(e) => onChange(e.target.value)}>
-          <option disabled defaultValue="Сортировка по"></option>
-          <option>on title</option>
-          <option>on body</option>
-        </select>
-      </div>
-    </div>
+    <select value={value} onChange={(e) => onChange(e.target.value)}>
+      <option disabled defaultValue="Сортировка по"></option>
+      {options.map((option) => (
+        <option value={option.value} key={option.value}>
+          {option.name}
+        </option>
+      ))}
+    </select>
   );
 };
 
