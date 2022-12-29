@@ -1,7 +1,27 @@
 import React from "react";
+import MyInput from "./../ui/myInput/MyInput";
+import MySelect from "./../ui/mySelect/MySelect";
 
-const TodoFilter = ({ sort, setSort }) => {
-  return <div></div>;
+const TodoFilter = ({ filter, setFilter }) => {
+  return (
+    <div>
+      <MyInput
+        value={filter.query}
+        onChange={(e) => setFilter({ ...filter, query: e.target.value })}
+      />
+
+      <MySelect
+        value={filter.sort}
+        onChange={(selectedSort) =>
+          setFilter({ ...filter, sort: selectedSort })
+        }
+        options={[
+          { value: "title", name: "on title" },
+          { value: "body", name: "on body" },
+        ]}
+      />
+    </div>
+  );
 };
 
 export default TodoFilter;

@@ -6,7 +6,7 @@ const TodoItem = (props) => {
     if (check) {
       setTimeout(() => {
         props.remove(props.todo);
-      }, 600);
+      }, 1000);
     }
   };
   return (
