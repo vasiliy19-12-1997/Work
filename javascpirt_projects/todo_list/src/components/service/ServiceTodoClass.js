@@ -1,5 +1,5 @@
 import axios from "axios";
-export default class ServiceTodo {
+export default class ServiceTodoClass {
   static async getAll(props) {
     if (typeof JSON) {
       const response = await axios.get(
@@ -11,7 +11,7 @@ export default class ServiceTodo {
           },
         }
       );
-      return response.data;
+      return response;
     } else {
       return props.todos;
     }
