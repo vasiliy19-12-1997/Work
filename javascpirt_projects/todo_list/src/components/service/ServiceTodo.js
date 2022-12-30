@@ -5,7 +5,7 @@ export const ServiceTodo = async (props) => {
       "https://jsonplaceholder.typicode.com/posts",
       {
         params: {
-          _limit: 50,
+          _limit: 100,
           _page: 1,
         },
       }

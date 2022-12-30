@@ -2,6 +2,9 @@ import React from "react";
 import TodoItem from "./../todoItem/TodoItem";
 
 const TodoList = ({ todos, remove }) => {
+  if (!todos.length) {
+    return <div>Todos doesnt found</div>;
+  }
   return (
     <div>
       {todos.map((todo, index) => (

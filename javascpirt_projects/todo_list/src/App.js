@@ -8,7 +8,10 @@ import MyInput from "./components/ui/myInput/MyInput";
 import MySelect from "./components/ui/mySelect/MySelect";
 import axios from "axios";
 import { useTodos } from "./components/hooks/useTodos";
-import { ServiceTodo } from "./components/service/ServiceTodo";
+
+import Loader from "./components/ui/loader/Loader";
+import { useFetching } from "./components/hooks/usefetching";
+import ServiceTodoClass from "./components/service/ServiceTodoClass";
 function App() {
   const [todos, setTodos] = useState([
     { title: "Js", id: Math.random(), completed: false, body: "java script" },
@@ -18,13 +21,15 @@ function App() {
 
   const [filter, setFilter] = useState({ sort: "", query: "" });
   const sortedAndSearchTodos = useTodos(todos, filter.sort, filter.query);
-  const fetchTodos = async () => {
-    const todos = await ServiceTodo();
+
+  const [fetching, isLoading, error] = useFetching(async () => {
+    const todos = await ServiceTodoClass.getAll();
     setTodos(todos);
-  };
+  });
+  // const fetchTodos = async () => {};
   useEffect(() => {
-    fetchTodos();
-    console.log("Отработала");
+    fetching();
+    console.log("work");
   }, []);
   const createTodo = (newTask) => {
     setTodos([...todos, newTask]);
@@ -35,9 +40,11 @@ function App() {
 
   return (
     <div>
-      <MyButton onClick={fetchTodos} />
+      <MyButton onClick={fetching} />
       <TodoForm create={createTodo} />
+      {error && <div>{error}</div>}
       <TodoFilter filter={filter} setFilter={setFilter} />
+      {isLoading && <Loader></Loader>}
       <TodoList remove={deleteTodo} todos={sortedAndSearchTodos} />
     </div>
   );
