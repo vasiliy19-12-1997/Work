@@ -16,7 +16,9 @@ export const useTodos = (todos, sort, query) => {
 
   const sortedAndSearchTodos = useMemo(() => {
     return sortedTodos.filter(
-      (todo) => todo.title.includes(query) || todo.body.includes(query)
+      (todo) =>
+        todo.title.toLowerCase().includes(query) ||
+        todo.body.toLowerCase().includes(query)
     );
   }, [query, sortedTodos]);
   return sortedAndSearchTodos;
