@@ -5,7 +5,7 @@ import MyInput from "./../ui/myInput/MyInput";
 
 const TodoItem = (props) => {
   const navigate = useNavigate();
-  console.log(props.todo.id);
+
   const check = useRef("");
   const remove = () => {
     if (check) {

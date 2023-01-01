@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 
 import useTodos from "./../hooks/useTodos";
 import { useFetching } from "./../hooks/useFetching";
-import ServiceTodo from "./../service/ServiceTodo";
+import ServiceTodo from "../api/ServiceTodo";
 import { getPageCount } from "./../utils/pages";
 import MyButton from "./../ui/myButton/MyButton";
 import TodoForm from "./../todoForm/TodoForm";
@@ -20,7 +20,7 @@ function Todos() {
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(0);
 
-  const [fetching, isLoading, error] = useFetching(async () => {
+  const [fetching, isLoading, error] = useFetching(async (limit, page) => {
     const response = await ServiceTodo.getAll(limit, page);
     setTodos(response.data);
 
@@ -29,8 +29,8 @@ function Todos() {
   });
 
   useEffect(() => {
-    fetching();
-  }, [page]);
+    fetching(limit, page);
+  }, [limit, page]);
 
   // }, []);
   const createTodo = (newTask) => {
