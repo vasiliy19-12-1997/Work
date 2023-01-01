@@ -4,7 +4,7 @@ import s from "./TodoItem.module.scss";
 import MyInput from "./../ui/myInput/MyInput";
 import { useNavigate } from "react-router-dom";
 const TodoItem = (props) => {
-  const navigate = useNavigate;
+  const navigate = useNavigate();
 
   return (
     <div className={s.TodoItem}>

@@ -4,17 +4,12 @@ import About from "./components/pages/About";
 import Todos from "./components/pages/Todos";
 import Navbar from "./components/ui/navbar/Navbar";
 import Error from "./components/pages/Error";
+import AppRouter from "./components/appRouter/AppRouter";
 function App() {
   return (
     <BrowserRouter>
       <Navbar />
-      <Routes>
-        <Route element={<About />} path="/about"></Route>
-        <Route element={<Todos />} path="/"></Route>
-        <Route element={<Error />} path="/error"></Route>
-        {/* если пользователь введет не существующий url, то перейдем к туду листу */}
-        <Route path="/*" element={<Navigate to="/" replace />} />
-      </Routes>
+      <AppRouter />
     </BrowserRouter>
   );
 }
