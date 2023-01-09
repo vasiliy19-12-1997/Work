@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter, Route, Routes, Link, Navigate } from "react-router-dom";
-import About from "./components/pages/About";
-import Todos from "./components/pages/Todos";
-import Navbar from "./components/ui/navbar/Navbar";
-import Error from "./components/pages/Error";
+import { BrowserRouter } from "react-router-dom";
+
 import AppRouter from "./components/appRouter/AppRouter";
 import { AuthContext } from "./context/Context";
+import Navbar from "./components/ui/navbar/Navbar";
 function App() {
   const [isAuth, setIsAuth] = useState(false);
   const [isLoading, setIsLoading] = useState(true);

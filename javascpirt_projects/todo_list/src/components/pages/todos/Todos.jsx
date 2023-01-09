@@ -1,15 +1,15 @@
 import { useState, useEffect } from "react";
-
-import useTodos from "./../hooks/useTodos";
-import { useFetching } from "./../hooks/useFetching";
-import ServiceTodo from "../api/ServiceTodo";
-import { getPageCount } from "./../utils/pages";
-import MyButton from "./../ui/myButton/MyButton";
-import TodoForm from "./../todoForm/TodoForm";
-import TodoFilter from "./../todoFilter/TodoFilter";
-import Loader from "./../ui/loader/Loader";
-import TodoList from "./../todoList/TodoList";
-import Pagination from "./../ui/pagination/Pagination";
+import useTodos from "./../../hooks/useTodos";
+import { useFetching } from "./../../hooks/useFetching";
+import ServiceTodo from "./../../api/ServiceTodo";
+import { getPageCount } from "./../../utils/pages";
+import MyButton from "./../../ui/myButton/MyButton";
+import TodoForm from "./../../todoForm/TodoForm";
+import Loader from "./../../ui/loader/Loader";
+import TodoFilter from "./../../todoFilter/TodoFilter";
+import TodoList from "./../../todoList/TodoList";
+import Pagination from "./../../ui/pagination/Pagination";
+import s from "./Todos.module.scss";
 function Todos() {
   const [todos, setTodos] = useState([]);
 
@@ -43,7 +43,7 @@ function Todos() {
     setPage(page);
   };
   return (
-    <div>
+    <div className={s.Todos}>
       <MyButton onClick={fetching}>Load</MyButton>
       <TodoForm create={createTodo} />
       {error && <div>{error}</div>}

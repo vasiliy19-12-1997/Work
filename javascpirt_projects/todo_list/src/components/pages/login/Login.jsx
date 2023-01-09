@@ -1,7 +1,7 @@
-import React, { useContext } from "react";
-import MyButton from "../ui/myButton/MyButton";
-import MyInput from "../ui/myInput/MyInput";
-import { AuthContext } from "./../../context/Context";
+import { useContext } from "react";
+import { AuthContext } from "./../../../context/Context";
+import MyInput from "./../../ui/myInput/MyInput";
+import MyButton from "./../../ui/myButton/MyButton";
 
 const Login = () => {
   const { isAuth, setIsAuth } = useContext(AuthContext);

@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import MyButton from "../myButton/MyButton";
 import { AuthContext } from "./../../../context/Context";
-
+import s from "./Navbar.module.scss";
 const Navbar = () => {
   const { isAuth, setIsAuth } = useContext(AuthContext);
   const logout = () => {
@@ -10,9 +10,9 @@ const Navbar = () => {
     localStorage.removeItem("auth");
   };
   return (
-    <div>
+    <div className={s.Navbar}>
       <MyButton onClick={logout}>Log out</MyButton>
-      <div>
+      <div className={s.NavbarLink}>
         <Link to="/about">About</Link>
         <Link to="/todos">Todos</Link>
       </div>

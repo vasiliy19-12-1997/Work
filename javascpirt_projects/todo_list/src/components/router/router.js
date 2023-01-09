@@ -1,7 +1,9 @@
-import Todos from "./../pages/Todos";
-import About from "./../pages/About";
 import TodoIdPage from "./../todoIdPage/TodoIdPage";
-import Login from "./../pages/Login";
+import Todos from "./../pages/todos/Todos";
+
+import Login from "./../pages/login/Login";
+import About from "./../pages/about/About";
+
 export const privateRoutes = [
   { path: "/todos", element: Todos },
   { path: "/todos/:id", element: TodoIdPage },
