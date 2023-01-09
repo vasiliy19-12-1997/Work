@@ -13,8 +13,12 @@ const Navbar = () => {
     <div className={s.Navbar}>
       <MyButton onClick={logout}>Log out</MyButton>
       <div className={s.NavbarLink}>
-        <Link to="/about">About</Link>
-        <Link to="/todos">Todos</Link>
+        <Link className={s.NavbarLinkL} to="/about">
+          About
+        </Link>
+        <Link className={s.NavbarLinkL} to="/todos">
+          Todos
+        </Link>
       </div>
     </div>
   );

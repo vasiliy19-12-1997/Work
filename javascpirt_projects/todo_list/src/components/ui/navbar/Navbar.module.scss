@@ -1,10 +1,19 @@
 .Navbar {
   display: flex;
-  padding: 5px;
+  margin: 15px 10px;
+
   flex-direction: row-reverse;
-  justify-content: space-around;
+  justify-content: space-between;
   &Link {
     display: flex;
-    gap: 10px;
+    gap: 5px;
+    &L {
+      background-color: #08a652;
+      border: 2px solid #1c663e;
+      margin-top: 10px;
+      cursor: pointer;
+      padding: 5px;
+      color: #ffffff;
+    }
   }
 }

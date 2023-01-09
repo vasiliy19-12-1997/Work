@@ -1,14 +1,19 @@
 import React from "react";
 import MyButton from "./../myButton/MyButton";
 import { usePagination } from "../../hooks/usePagination";
+import s from "./Pagination.module.scss";
 const Pagination = ({ totalPages, page, changePage }) => {
   let pagesArray = usePagination(totalPages);
   return (
-    <div>
+    <div className={s.Pagination}>
       {pagesArray.map((page) => (
-        <MyButton onClick={() => changePage(page)} key={page}>
+        <button
+          className={s.PaginationButton}
+          onClick={() => changePage(page)}
+          key={page}
+        >
           {page}
-        </MyButton>
+        </button>
       ))}
     </div>
   );

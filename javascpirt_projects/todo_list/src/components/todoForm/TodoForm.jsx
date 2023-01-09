@@ -18,13 +18,13 @@ const TodoForm = ({ create }) => {
       <MyInput
         type="text"
         value={todo.title}
-        placeholder="title"
+        placeholder="Write title..."
         onChange={(e) => setTodo({ ...todo, title: e.target.value })}
       />
       <MyInput
         type="text"
         value={todo.body}
-        placeholder="body"
+        placeholder="Write body..."
         onChange={(e) => setTodo({ ...todo, body: e.target.value })}
       />
       <MyButton onClick={createTask}>Create Todos</MyButton>

@@ -1,0 +1,13 @@
+.MyInput {
+  display: grid;
+  grid-template-columns: auto;
+  border-radius: 4px;
+  color: #262626;
+  height: 30px;
+  //   padding-top: 10px;
+  padding: 5px;
+  &I {
+    padding: 5px;
+    font-size: 16px;
+  }
+}

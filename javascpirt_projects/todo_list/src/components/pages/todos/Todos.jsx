@@ -1,15 +1,16 @@
 import { useState, useEffect } from "react";
 import useTodos from "./../../hooks/useTodos";
-import { useFetching } from "./../../hooks/useFetching";
+import { useFetching } from "../../hooks/useFetching";
 import ServiceTodo from "./../../api/ServiceTodo";
 import { getPageCount } from "./../../utils/pages";
 import MyButton from "./../../ui/myButton/MyButton";
-import TodoForm from "./../../todoForm/TodoForm";
+
 import Loader from "./../../ui/loader/Loader";
 import TodoFilter from "./../../todoFilter/TodoFilter";
 import TodoList from "./../../todoList/TodoList";
 import Pagination from "./../../ui/pagination/Pagination";
 import s from "./Todos.module.scss";
+import TodoForm from "./../../todoForm/TodoForm";
 function Todos() {
   const [todos, setTodos] = useState([]);
 

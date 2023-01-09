@@ -3,7 +3,17 @@ import TodoItem from "./../todoItem/TodoItem";
 
 const TodoList = ({ todos, remove }) => {
   if (!todos.length) {
-    return <div>Todos doesnt found</div>;
+    return (
+      <div
+        style={{
+          marginTop: "10px",
+          display: "flex",
+          justifyContent: "center",
+        }}
+      >
+        Todos doesnt found
+      </div>
+    );
   }
   return (
     <div>

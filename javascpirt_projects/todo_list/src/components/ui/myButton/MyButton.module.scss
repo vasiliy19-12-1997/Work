@@ -1,2 +1,14 @@
 .MyButton {
+  display: grid;
+  grid-auto-columns: 150px;
+  padding: 5px;
+
+  &S {
+    background-color: #08a652;
+    border: 2px solid #1c663e;
+    margin-top: 10px;
+    cursor: pointer;
+    padding: 5px;
+    color: #ffffff;
+  }
 }
