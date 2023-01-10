@@ -1,0 +1,13 @@
+.TodoItem {
+  display: grid;
+  align-items: flex-end;
+
+  &Item {
+    display: grid;
+    // justify-content: center;
+  }
+  &Button {
+    display: flex;
+    justify-content: space-between;
+  }
+}
