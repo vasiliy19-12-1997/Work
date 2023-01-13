@@ -51,6 +51,7 @@ function Todos() {
       <TodoFilter filter={filter} setFilter={setFilter} />
       {isLoading && <Loader></Loader>}
       <TodoList remove={deleteTodo} todos={sortedAndSearchTodos} />
+      <Loader />
       <Pagination totalPages={totalPages} page={page} changePage={changePage} />
     </div>
   );

@@ -17,8 +17,8 @@ const TodoItem = (props) => {
 
   return (
     <div className={s.TodoItem}>
-      <h3>{props.todo.title}</h3>
       <div className={s.TodoItemItem}>
+        <h3>{props.todo.title}</h3>
         <div>{props.todo.body}</div>
       </div>
       <MyInput type="checkbox" ref={check} onClick={remove} />
