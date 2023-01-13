@@ -47,11 +47,11 @@ function Todos() {
     <div className={s.Todos}>
       <MyButton onClick={fetching}>Load</MyButton>
       <TodoForm create={createTodo} />
+
       {error && <div>{error}</div>}
       <TodoFilter filter={filter} setFilter={setFilter} />
       {isLoading && <Loader></Loader>}
       <TodoList remove={deleteTodo} todos={sortedAndSearchTodos} />
-      <Loader />
       <Pagination totalPages={totalPages} page={page} changePage={changePage} />
     </div>
   );

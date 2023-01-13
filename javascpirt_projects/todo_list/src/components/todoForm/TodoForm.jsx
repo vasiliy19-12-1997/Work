@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import MyInput from "./../ui/myInput/MyInput";
 import MyButton from "./../ui/myButton/MyButton";
-
+import s from "./TodoForm.module.scss";
 const TodoForm = ({ create }) => {
   const [todo, setTodo] = useState({ title: "", body: "" });
 
@@ -14,7 +14,7 @@ const TodoForm = ({ create }) => {
     setTodo({ title: "", body: "" });
   };
   return (
-    <div>
+    <div className={s.TodoForm}>
       <MyInput
         type="text"
         value={todo.title}

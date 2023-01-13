@@ -1,6 +1,7 @@
 .MyButton {
-  display: grid;
-  grid-auto-columns: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   padding: 5px;
 
   &S {
