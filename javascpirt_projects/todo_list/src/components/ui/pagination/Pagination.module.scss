@@ -1,4 +1,14 @@
 .Pagination {
+  // display: grid;
+  // grid-template-columns: auto;
+  display: flex;
+  justify-content: center;
   &Button {
+    background-color: #08a652;
+    border: 2px solid #1c663e;
+    margin-top: 10px;
+    cursor: pointer;
+    padding: 10px;
+    color: #ffffff;
   }
 }

@@ -1,13 +1,15 @@
 .Navbar {
   display: flex;
-  margin: 15px 10px;
-
   flex-direction: row-reverse;
   justify-content: space-between;
   &Link {
     display: flex;
-    gap: 5px;
+    // flex-direction: column;
+    justify-content: center;
+    padding: 5px;
+    gap: 8px;
     &L {
+      font-size: 13px;
       background-color: #08a652;
       border: 2px solid #1c663e;
       margin-top: 10px;

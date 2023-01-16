@@ -7,13 +7,13 @@ const Pagination = ({ totalPages, page, changePage }) => {
   return (
     <div className={s.Pagination}>
       {pagesArray.map((page) => (
-        <button
+        <MyButton
           className={s.PaginationButton}
           onClick={() => changePage(page)}
           key={page}
         >
           {page}
-        </button>
+        </MyButton>
       ))}
     </div>
   );

@@ -1,9 +1,8 @@
 .TodoItem {
   display: grid;
-  align-items: flex-end;
+  // align-items: flex-end;
 
   &Item {
-    display: grid;
     margin-left: 5px;
     // justify-content: center;
   }

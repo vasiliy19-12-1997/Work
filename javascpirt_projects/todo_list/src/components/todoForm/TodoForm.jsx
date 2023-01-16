@@ -14,7 +14,7 @@ const TodoForm = ({ create }) => {
     setTodo({ title: "", body: "" });
   };
   return (
-    <div className={s.TodoForm}>
+    <div>
       <MyInput
         type="text"
         value={todo.title}

@@ -9,14 +9,14 @@ import Loader from "./../../ui/loader/Loader";
 import TodoFilter from "./../../todoFilter/TodoFilter";
 import TodoList from "./../../todoList/TodoList";
 import Pagination from "./../../ui/pagination/Pagination";
-import s from "./Todos.module.scss";
+
 import TodoForm from "./../../todoForm/TodoForm";
 function Todos() {
   const [todos, setTodos] = useState([]);
 
   const [filter, setFilter] = useState({ sort: "", query: "" });
   const sortedAndSearchTodos = useTodos(todos, filter.sort, filter.query);
-  const [totalCount, setTotalCount] = useState(0);
+  const [, setTotalCount] = useState(0);
   const [limit, setLimit] = useState(10);
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(0);
@@ -44,7 +44,7 @@ function Todos() {
     setPage(page);
   };
   return (
-    <div className={s.Todos}>
+    <div>
       <MyButton onClick={fetching}>Load</MyButton>
       <TodoForm create={createTodo} />
 
