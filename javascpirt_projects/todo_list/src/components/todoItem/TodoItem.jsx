@@ -17,12 +17,19 @@ const TodoItem = (props) => {
 
   return (
     <div className={s.TodoItem}>
-      <div className={s.TodoItemItem}>
+      <div className={s.TodoItemText}>
         <h3>{props.todo.title}</h3>
-        <div>{props.todo.body}</div>
       </div>
-      <MyInput type="checkbox" ref={check} onClick={remove} />
-      <div className={s.TodoItemButton}>
+      <div>{props.todo.body}</div>
+      <div className={s.TodoItemCheck}>
+        <input
+          className={s.TodoItemCheckBox}
+          type="checkbox"
+          ref={check}
+          onClick={remove}
+        />
+      </div>
+      <div>
         <MyButton onClick={() => navigate(`/todos/${props.todo.id}`)}>
           Open
         </MyButton>

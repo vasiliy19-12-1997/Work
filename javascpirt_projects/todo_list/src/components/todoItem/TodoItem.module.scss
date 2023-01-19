@@ -1,13 +1,18 @@
 .TodoItem {
-  display: grid;
-  // align-items: flex-end;
-
-  &Item {
-    margin-left: 5px;
-    // justify-content: center;
+  margin-top: 10px;
+  &Text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
-  &Button {
-    // display: flex;
-    // justify-content: space-between;
+  &Check {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 8px 0px 8px 0px;
+    &Box {
+      width: 30px;
+      height: 30px;
+    }
   }
 }

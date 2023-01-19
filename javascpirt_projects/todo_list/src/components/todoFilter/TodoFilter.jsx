@@ -10,17 +10,24 @@ const TodoFilter = ({ filter, setFilter }) => {
         onChange={(e) => setFilter({ ...filter, query: e.target.value })}
         placeholder="Write selections..."
       />
-
-      <MySelect
-        value={filter.sort}
-        onChange={(selectedSort) =>
-          setFilter({ ...filter, sort: selectedSort })
-        }
-        options={[
-          { value: "title", name: "on title" },
-          { value: "body", name: "on body" },
-        ]}
-      />
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+        }}
+      >
+        <MySelect
+          value={filter.sort}
+          onChange={(selectedSort) =>
+            setFilter({ ...filter, sort: selectedSort })
+          }
+          options={[
+            { value: "title", name: "on title" },
+            { value: "body", name: "on body" },
+          ]}
+        />
+      </div>
     </div>
   );
 };

@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import Loader from "../ui/loader/Loader";
 import { useFetching } from "./../hooks/useFetching";
 import ServiceTodo from "../api/ServiceTodo";
-
+import s from "./TodoIdPage.module.scss";
 const TodoIdPage = () => {
   const params = useParams();
   const [todo, setTodo] = useState({});
@@ -22,7 +22,7 @@ const TodoIdPage = () => {
     fetchComId(params.id);
   }, []);
   return (
-    <div>
+    <div className={s.TodoIdPage}>
       <h1>You have opened a site about todo id = {params.id}</h1>
       {isLoadingId ? (
         <Loader />
