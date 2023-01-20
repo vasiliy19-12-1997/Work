@@ -1,0 +1,22 @@
+.Navbar {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  &Link {
+    display: flex;
+    // flex-direction: column;
+    justify-content: center;
+    padding: 5px;
+    gap: 8px;
+    &L {
+      font-size: 13px;
+      background-color: #08a652;
+      border: 2px solid #1c663e;
+      margin-top: 10px;
+      cursor: pointer;
+      padding: 5px;
+      color: #ffffff;
+      text-decoration: none;
+    }
+  }
+}

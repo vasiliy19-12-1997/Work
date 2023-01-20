@@ -1,0 +1,16 @@
+.Pagination {
+  // display: grid;
+  // grid-template-columns: auto;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  &Button {
+    background-color: #08a652;
+    border: 2px solid #1c663e;
+    margin-top: 10px;
+    cursor: pointer;
+    padding: 12px;
+    color: #ffffff;
+    margin-top: 15px;
+  }
+}

@@ -12,18 +12,17 @@ import Loader from "./../components/ui/loader/Loader";
 import Pagination from "./../components/ui/pagination/Pagination";
 import s from "./App.module.scss";
 import { useObserver } from "./../components/hooks/useObserver";
+import { usePagination } from "../components/hooks/usePagination";
 import MySelect from "../components/ui/mySelect/MySelect";
 function Todos() {
   const [todos, setTodos] = useState([]);
-  // const [selectedSort, setSelectedSort] = useState("");
 
-  // const [searchQuery, setSearchQuery] = useState("");
   const [page, setPage] = useState(1);
   const [limit, setLimit] = useState(20);
   const [totalPages, setTotalPages] = useState(1);
   const [filter, setFilter] = useState({ sort: "", query: "" });
   const sortedAndSearchTodos = useTodos(todos, filter.sort, filter.query);
-  let pagesArray = getPagesAray(totalPages);
+  let pagesArray = usePagination(totalPages);
   const lastElement = useRef();
 
   console.log(lastElement);

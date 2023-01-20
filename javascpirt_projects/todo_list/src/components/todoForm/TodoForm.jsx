@@ -1,27 +1,33 @@
 import React, { useState } from "react";
-import MyButton from "./../ui/myButton/MyButton";
 import MyInput from "./../ui/myInput/MyInput";
+import MyButton from "./../ui/myButton/MyButton";
 import s from "./TodoForm.module.scss";
 const TodoForm = ({ create }) => {
-  const [todo, setTodo] = useState({ title: "", completed: true });
+  const [todo, setTodo] = useState({ title: "", body: "" });
 
-  const addNewTodo = () => {
-    const newTodo = {
+  const createTask = () => {
+    const newTask = {
       ...todo,
       id: Math.random(),
     };
-    create(newTodo);
-    setTodo({ title: "", completed: true });
+    create(newTask);
+    setTodo({ title: "", body: "" });
   };
   return (
-    <div className={s.TodoForm}>
+    <div>
       <MyInput
-        value={todo.title}
-        onChange={(e) => setTodo({ ...todo, title: e.target.value })}
         type="text"
-        placeholder="Enter title"
+        value={todo.title}
+        placeholder="Write title..."
+        onChange={(e) => setTodo({ ...todo, title: e.target.value })}
       />
-      <MyButton onClick={addNewTodo}>Create Todo</MyButton>
+      <MyInput
+        type="text"
+        value={todo.body}
+        placeholder="Write body..."
+        onChange={(e) => setTodo({ ...todo, body: e.target.value })}
+      />
+      <MyButton onClick={createTask}>Create Todos</MyButton>
     </div>
   );
 };

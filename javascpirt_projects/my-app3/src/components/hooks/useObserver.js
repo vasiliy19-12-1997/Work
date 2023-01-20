@@ -5,7 +5,6 @@ export const useObserver = (ref, canLoad, isLoading, callback) => {
     if (isLoading) return;
     if (observer.current) observer.current.disconnect();
     let cb = function (entries) {
-      console.log(entries);
       if (entries[0].isIntersecting && canLoad) {
         callback();
       }

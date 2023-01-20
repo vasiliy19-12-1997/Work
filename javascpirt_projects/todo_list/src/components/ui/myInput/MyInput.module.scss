@@ -1,9 +1,12 @@
 .MyInput {
-  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  &I {
+    border-radius: 10px;
+    color: #262626;
+    padding: 8px;
 
-  &Input {
-    font: inherit;
-    padding: 0.5em 0.6em;
-    min-width: 800px;
+    font-size: 16px;
+    margin: 5px;
   }
 }

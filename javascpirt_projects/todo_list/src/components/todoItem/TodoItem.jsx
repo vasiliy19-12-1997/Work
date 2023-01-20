@@ -1,30 +1,40 @@
-import React, { useRef } from "react";
+import React, { useRef, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import MyButton from "./../ui/myButton/MyButton";
 import MyInput from "./../ui/myInput/MyInput";
-
+import s from "./TodoItem.module.scss";
 const TodoItem = (props) => {
-  const check = useRef();
-  const removes = () => {
+  const navigate = useNavigate();
+
+  const check = useRef("");
+  const remove = () => {
     if (check) {
       setTimeout(() => {
-        return props.remove(props.todo);
-      }, 500);
+        props.remove(props.todo);
+      }, 1000);
     }
   };
+
   return (
-    <div>
-      <div>
-        <strong>{props.todo.index}</strong>
-        <div>{props.todo.title}</div>
-        <div>{props.todo.body}</div>
-        <input
-          onChange={removes}
-          ref={check}
-          value={props.todo.completed}
-          type="checkbox"
-        ></input>
+    <div className={s.TodoItem}>
+      <div className={s.TodoItemText}>
+        <h3>{props.todo.title}</h3>
       </div>
-      <MyButton onClick={() => props.remove(props.todo)}>Delete</MyButton>
+      <div>{props.todo.body}</div>
+      <div className={s.TodoItemCheck}>
+        <input
+          className={s.TodoItemCheckBox}
+          type="checkbox"
+          ref={check}
+          onClick={remove}
+        />
+      </div>
+      <div>
+        <MyButton onClick={() => navigate(`/todos/${props.todo.id}`)}>
+          Open
+        </MyButton>
+        <MyButton onClick={() => props.remove(props.todo)}>Delete</MyButton>
+      </div>
     </div>
   );
 };

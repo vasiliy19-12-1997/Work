@@ -1,11 +1,15 @@
 .MyButton {
-  display: grid;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 5px;
 
-  &Button {
+  &S {
     background-color: #08a652;
-
-    border: 2px solid #08a652;
-    padding: 10px;
+    border: 2px solid #1c663e;
+    // margin-top: 10px;
     cursor: pointer;
+    padding: 5px;
+    color: #ffffff;
   }
 }

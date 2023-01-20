@@ -3,7 +3,7 @@ import s from "./MyButton.module.scss";
 const MyButton = ({ children, ...props }) => {
   return (
     <div className={s.MyButton}>
-      <button {...props} className={s.MyButtonButton}>
+      <button className={s.MyButtonS} {...props}>
         {children}
       </button>
     </div>
